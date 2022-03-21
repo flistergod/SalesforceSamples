@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : Flistergod
+  @group             : 
+  @last modified on  : 12-21-2020
+  @last modified by  : Flistergod
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   12-21-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+   <lightning-card class="slds-is-relative">
+       <template if:true={isLoading}>
+           <lightning-spinner alternative-text="Loading" variant="brand"></lightning-spinner>
+       </template>
+
+       <template if:true={isRendered}>
+           <lightning-map map-markers={mapMarkers} zoom-level="10"></lightning-map>
+       </template>
+       <div slot="footer">Top 10 Only!</div>
+   </lightning-card>
+</template>
