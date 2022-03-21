@@ -1,0 +1,58 @@
+<template>
+    <div>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                    <div class="slds-media__figure stencil slds-avatar slds-avatar_small">
+                        <span class="slds-icon_container slds-icon-custom-custom93">
+                            <lightning-icon icon-name="custom:custom93" alternative-text="Quotes"
+                                title="Quotes" size="medium"></lightning-icon>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <p class="slds-card__header-link baseCard__header-title-container">
+                                <span class="slds-truncate slds-m-right--xx-small" title="Quotes">Quotes</span>
+                                <span class="slds-shrink-none slds-m-right--xx-small" title={totalrecordsText}>({totalrecordsText})</span>
+                            </p>
+                        </h2>
+                    </div>
+                </div>
+                <div class="slds-page-header__col-actions">
+                    <div class="slds-page-header__controls">
+                        <div class="slds-page-header__control">
+                            <ul class="slds-button-group-list">
+                                <!-- <li>
+                                    <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                                        <button class="slds-button slds-button_icon slds-button_icon-border-filled"
+                                            aria-haspopup="true" title="More Actions">
+                                            <lightning-icon icon-name="utility:down"
+                                                alternative-text={label.Loyalty_Summary} title={label.Loyalty_Summary}
+                                                size="x-small"></lightning-icon>
+                                            <span class="slds-assistive-text">More Actions</span>
+                                        </button>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  style="">
+            <lightning-datatable
+                    key-field="Id"
+                    columns={opptyQuoteColumns}
+                    data={opptyQuotes}
+                    hide-checkbox-column
+                    default-sort-direction={defaultSortDirection}
+                    sorted-direction={sortDirection}
+                    sorted-by={sortedBy}
+                    onsort={onHandleSort}
+                    onrowaction={handleRowAction}
+                    enable-infinite-loading="true"
+                    onloadmore={loadMoreData}>
+            </lightning-datatable>
+        </div>
+    </div>
+</template>

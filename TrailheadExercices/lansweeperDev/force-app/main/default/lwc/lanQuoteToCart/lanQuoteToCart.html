@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Quote-To-Cart" icon-name="custom:custom67">
+        <lightning-button name="GenerateQTC" label="Generate URL" title="Generate URL" onclick={generateQTCURL} slot="actions"></lightning-button>
+        <template if:true={qtcURL}>
+            <div class="slds-p-left_large">
+                <div class="slds-text-body_small"></div>
+                <lightning-badge label={qtcURL}></lightning-badge>
+            </div>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">
+                <p class="slds-p-horizontal_small">{error}</p>
+            </div>
+        </template>
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+    </lightning-card>
+</template>

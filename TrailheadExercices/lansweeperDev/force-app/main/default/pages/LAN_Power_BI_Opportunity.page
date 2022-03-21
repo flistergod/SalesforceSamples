@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity" title="Product Data from Power BI">
+    <apex:iframe src="https://app.powerbi.com/reportEmbed?reportId=4fa8a4e8-26a7-45ec-80b3-dce93d88a6ce&autoAuth=true&ctid=006ab0d2-c8fa-43a7-8a27-0ae2c287588a&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D&navContentPaneEnabled=false&pageName=ReportSectionc04ba05714ca7289bea6&filter=Installations_CoreInstallIDs/OrderReference%20eq%20%27{!Opportunity.LAN_License_Reference_Number__c}%27"
+    scrolling="true"
+    frameborder="0"
+    />
+</apex:page>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formulas>
+        <name>CreateNewName</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Record.LAN_Addressee_Name__c} + &quot;-&quot; + {!$Record.LAN_Street__c} + &quot;-&quot; + {!$Record.LAN_Zipcode__c} + &quot;-&quot; + {!$Record.LAN_City__c} + &quot;-&quot; + {!$Record.LAN_Country__r.LAN_Country__c}, 80)</expression>
+    </formulas>
+    <interviewLabel>Billing Information: update name on create {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Billing Information: update name on create</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Address_Label</name>
+        <label>Update Address Label</label>
+        <locationX>176</locationX>
+        <locationY>253</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>CreateNewName</elementReference>
+            </value>
+        </inputAssignments>
+        <object>LAN_Billing_Information__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Address_Label</targetReference>
+        </connector>
+        <object>LAN_Billing_Information__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
