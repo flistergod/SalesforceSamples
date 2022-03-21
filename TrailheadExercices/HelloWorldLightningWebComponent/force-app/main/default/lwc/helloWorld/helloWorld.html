@@ -1,0 +1,18 @@
+<!--
+  @description       : 
+  @author            : Flistergod
+  @group             : 
+  @last modified on  : 11-05-2020
+  @last modified by  : Flistergod
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   11-05-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <lightning-card title="HelloWorld" icon-name="custom:custom14">
+      <div class="slds-m-around_medium">
+        <p>Hello, {greeting}!</p>
+        <lightning-input label="Name" value={greeting} onchange={changeHandler}></lightning-input>
+      </div>
+    </lightning-card>
+  </template>
