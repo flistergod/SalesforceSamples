@@ -1,0 +1,34 @@
+<template>
+    <div  class="tableRowCell"><!-- if:true={cellData} -->
+      <!--Expand button in the table column, onclick, load Quote List in the modal: Start-->
+      <vlocity_cmt-button icon-name="utility:expand" theme="slds" icon-size="xx-small" icon-fill={iconColorBlue} title="View more" onclick={openModal}></vlocity_cmt-button>
+      <!--Expand button in the table column, onclick, load Quote List in the modal: End-->
+      <!--Modal to display Quote Listing: Start-->
+      <vlocity_cmt-modal title="Prices" size="medium" class="setPositionModal">
+        <div slot="content">
+          <div if:true={isData}>
+            <template iterator:it={data}>
+              <div key={it.value.Id} class="nds-grid nds-wrap">
+                <table><tr>
+                  <td style="width: 50%;">
+                    <vlocity_cmt-icon icon-name="standard:quotes" theme="slds" size="medium" extraclass="nds-m-right_xxx-small" color={iconColorDarkGreen} alternative-text={it.value.PriceName} title={it.value.PriceName}></vlocity_cmt-icon> {it.value.PriceName}
+                  </td>
+                  <td style="width: 50%;">
+                    <strong>{it.value.Price}</strong>
+                  </td>
+                </tr></table>
+                <slot name="flyout"></slot>
+              </div> 
+            </template>
+          </div>
+          <div if:false={isData}>
+            <p>{noRecords}</p>
+          </div>
+        </div>
+        <div slot="footer">
+          <vlocity_cmt-button variant="neutral" label="Cancel" onclick={closeModal}></vlocity_cmt-button>
+        </div>
+      </vlocity_cmt-modal>
+      <!--Modal to display Quote Listing: End-->
+    </div>
+  </template>

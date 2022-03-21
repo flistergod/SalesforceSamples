@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>
+        <template if:true={showTable}>
+           <c-ev-lead-indicative-quote-pagination records-to-show={opps} 
+                        total-records={opps.length} 
+                        show-search-box={showSearchBar} 
+                        onpaginatorchange={handlePaginatorChange}>
+            </c-ev-lead-indicative-quote-pagination>
+            <lightning-datatable key-field="Id" 
+                                data={recordsToDisplay} 
+                                selected-rows={preSelectedRows}
+                                columns={columns}                                
+                                show-row-number-column
+                                row-number-offset={rowNumberOffset}
+                                onrowselection={getSelectedRow}
+                                max-row-selection={numberRowSelection}>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>

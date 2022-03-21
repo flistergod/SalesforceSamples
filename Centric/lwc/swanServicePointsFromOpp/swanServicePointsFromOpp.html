@@ -1,0 +1,30 @@
+<template>
+  <lightning-card
+  >
+    <div class="slds-m-around_small">
+      <template if:true={errors}>
+        <p>0 records to display</p>
+      </template>
+    </div>
+    <div class="slds-m-around_small">
+      <template if:false={errors}>
+        <template if:true={datalist}>
+          <div if:true={isLoaded}>
+            <!--calls table with pagination, search, sort, etc-->
+            <c-do-pagination
+            contextid={contextid}
+              records={datalist}
+              show-table="true"
+              columns={columns}
+              search-filters={searchFilters}
+              recordsperpage="5"
+              onactions={handleRowActions}
+              onpagination={handlePagination}
+            >
+            </c-do-pagination>
+          </div>
+        </template>
+      </template>
+    </div>
+  </lightning-card>
+</template>

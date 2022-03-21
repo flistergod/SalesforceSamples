@@ -1,0 +1,3 @@
+let definition = 
+                {"GlobalKey__c":"QuoteDetailsExceptionsSummary/SCRATCH_ProjectSwan/1/1601463181922","dataSource":{"type":null},"enableLwc":true,"filter":{},"states":[{"conditions":{"group":[{"field":"$scope.data.status","operator":"===","type":"system","value":"'active'"}]},"definedActions":{"actions":[]},"fields":[],"isSmartAction":false,"lwc":{"DeveloperName":"swanQuoteExceptionSummary","Id":"0Rb8E000000DqOxSAK","MasterLabel":"SwanQuoteExceptionSummary","name":"swanQuoteExceptionSummary"},"name":"Active","smartAction":{}}],"title":"QuoteDetailsExceptionsSummary"}; 
+            export default definition

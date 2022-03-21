@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,lightning:isUrlAddressable,force:hasRecordId,lightning:actionOverride" > 
+	<aura:attribute name="recordId" type="String"/>
+    
+    <aura:if isTrue="{!v.recordId}">
+        <c:leadEVLeadConversionEnglish prefill='{"ContextId":!v.recordId}' layout="lightning"></c:leadEVLeadConversionEnglish>
+        <aura:set attribute="else">
+			  <c:leadEVLeadConversionEnglish prefill='' layout="lightning"></c:leadEVLeadConversionEnglish>
+        </aura:set>
+    </aura:if>     
+</aura:component>

@@ -1,0 +1,8 @@
+<template>
+    <div if:true={isGasList}>
+     <lightning-datatable class="GasTable" key-field="Id" columns={gasCols} data={datalist} hide-checkbox-column></lightning-datatable>
+    </div>
+    <div if:false={isGasList}>
+        <lightning-datatable class="ElecTable" key-field="Id" columns={ElecCols} data={datalist} hide-checkbox-column></lightning-datatable>
+       </div> 
+</template>

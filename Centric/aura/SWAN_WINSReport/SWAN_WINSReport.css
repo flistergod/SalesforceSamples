@@ -1,0 +1,11 @@
+.THIS.mainBody{
+    background-color : #FFF;
+}
+.THIS.mainBody .runReportButton{
+    padding : 10px;
+}
+.THIS.mainBody .field{
+  padding: 5px;
+  border: 1px solid #dce4ec;
+  border-radius: 2px;
+}

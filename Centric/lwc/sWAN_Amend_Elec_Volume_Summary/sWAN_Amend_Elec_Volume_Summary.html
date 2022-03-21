@@ -1,0 +1,61 @@
+<template>
+    <lightning-card> 
+	<template if:true={hasdata}>
+        <table id="dtBasicExample" class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout">
+            <thead>
+                <tr class="slds-line-height_reset" style="height: 40px;"> 
+                    <th class="slds-is-resizable dv-dynamic-width" scope="col" >
+                        <span class="slds-truncate">Month</span>
+                    </th>
+                    <th class="slds-is-resizable dv-dynamic-width" scope="col" >
+                        <span class="slds-truncate">Current Baseload MW</span>
+                    </th>
+                    <th class="slds-is-resizable dv-dynamic-width" scope="col">
+                        <span class="slds-truncate">Baseload MW</span>
+                    </th>
+                    <th class="slds-is-resizable dv-dynamic-width" scope="col" >
+                        <span class="slds-truncate">Current Peak MW</span>
+                    </th>
+                    <th class="slds-is-resizable dv-dynamic-width" scope="col">
+                        <span class="slds-truncate">Peak MW</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={tabledata} for:item="rw">
+                    <tr key={rw.Id}> 
+                        <td>
+                            <div style="overflow: hidden;">
+                                <lightning-formatted-text value={rw.Month}></lightning-formatted-text>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="overflow: hidden;">
+                                {rw.CurrentBaseloadClipMW}
+                            </div>
+                        </td>
+                        <td>
+                            <div style="overflow: hidden;">
+                                <lightning-input key={rw.BaseloadClipMW} type="number" step=".1" min="0" name={rw.Id} value={rw.BaseloadClipMW} onchange={changeNumber}></lightning-input>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="overflow: hidden;">
+                                {rw.CurrentPeakClipMW}
+                            </div>
+                        </td>
+                        <td>
+                            <div style="overflow: hidden;">
+                                <lightning-input key={rw.PeakClipMW} type="number" step=".1" min="0" name={rw.Id} value={rw.PeakClipMW} onchange={changeNumber1}></lightning-input>
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+             </tbody>
+        </table>
+	</template>
+	<template if:false={hasdata}>
+        <span style="font-size: x-large;">No Data to Display. </span>
+	</template>
+    </lightning-card>
+</template>

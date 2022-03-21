@@ -1,0 +1,83 @@
+<template>
+  <!--Quote List in Data Table: Start-->
+  <div if:true={isServicePointList}>
+    <div if:true={isGasList}>
+      <div if:true={quoteTypeFlex}>
+        <vlocity_cmt-data-table issortavailable="true" pagesize="30" columns={ServicePointColGas}
+          records={ServicePointRec} extraclass="nds-table_bordered" issearchavailable="true" class="SPGas">
+      
+          <vlocity_cmt-data-table-cell data-field-name="Cost" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="FixedUntil" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="DetailedBreakdown" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="£/MWh" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="p/kWh" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="p/th" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="Cost(£)" class="dataTableCell"></vlocity_cmt-data-table-cell>
+      
+        </vlocity_cmt-data-table>
+      </div>
+      <div if:false={quoteTypeFlex}>
+        <vlocity_cmt-data-table issortavailable="true" pagesize="10" columns={ServicePointColGas} records={ServicePointRec} 
+            extraclass="nds-table_bordered" issearchavailable="true" class="SPGas" >
+          <vlocity_cmt-data-table-cell data-field-name="ServicePointNumber" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="Consumption" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="AnnualSpend" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="ContractSpend" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="StandingCharge" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="UnitCharge" class="dataTableCell"></vlocity_cmt-data-table-cell>
+        </vlocity_cmt-data-table>
+      </div>
+    </div>
+    <div if:false={isGasList}>
+      <div if:false={quoteTypeFlex}>
+        <vlocity_cmt-data-table issortavailable="true"
+          pagesize="10" columns={ServicePointColElec} records={ServicePointRec}
+          extraclass="nds-table_bordered" issearchavailable="true" class="SPElec" >
+
+          <vlocity_cmt-data-table-cell data-field-name="ServicePointNumber" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="Consumption" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="AnnualSpend" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="ContractSpend" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <c-quote-price-read-more-cell data-field-name="ServicePointId" class="dataTableCell"></c-quote-price-read-more-cell>
+        </vlocity_cmt-data-table>
+      </div>
+      <div if:true={quoteTypeFlex}>
+        <vlocity_cmt-data-table issortavailable="true" pagesize="30" columns={ServicePointColElec} records={ServicePointRec}
+          extraclass="nds-table_bordered" issearchavailable="true" class="SPElec" >
+
+          <vlocity_cmt-data-table-cell data-field-name="Cost" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <!--<vlocity_cmt-data-table-cell data-field-name="Details" class="dataTableCell"></vlocity_cmt-data-table-cell>-->
+          <vlocity_cmt-data-table-cell data-field-name="FixedUntil" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="DetailedBreakdown" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="Price@NBP" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="Price@GSP" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="Price@MSP" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <vlocity_cmt-data-table-cell data-field-name="Cost(£)" class="dataTableCell"></vlocity_cmt-data-table-cell>
+          <!--
+          <c-quote-price-read-more-cell data-field-name="Price@NBP" class="dataTableCell"></c-quote-price-read-more-cell>
+          -->
+        </vlocity_cmt-data-table>
+      </div>
+    </div>
+     <!-- <table id="dtBasicExample" class="slds-table slds-table_bordered slds-table_header-fixed slds-table_resizable-cols slds-table_fixed-layout">
+      <thead>
+        <tr>
+        <template for:each={ServicePointCol} for:item="rw">
+          <td key={rw.label}>
+              
+                  <div>{rw.label}</div>
+              </td> 
+          
+        </template>
+      </tr>
+      </thead> 
+    </table> -->
+    
+  </div>
+  <!--If isServicePointList return false: Start-->
+  <div if:false={isServicePointList} class="nds-box">
+    <p>{noRecords}</p>
+  </div>
+  <!--If isServicePointList return false: Start-->
+  <!--Quote List in Data Table: End-->
+</template>

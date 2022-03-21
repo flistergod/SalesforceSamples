@@ -1,0 +1,72 @@
+<aura:component controller="SWAN_ATLASFileController" implements="force:appHostable" >
+    <lightning:workspaceAPI aura:id="workspace"/>
+	<aura:attribute name="reportList" type="SWAN_ReportData[]" />
+    <aura:attribute name="fromDate" type="Date" default="Date.today()"/>
+	<aura:attribute name="columns" type="List"/>
+	
+	<aura:attribute name="data" type="SWAN_ReportData[]"/>
+    <aura:attribute name="currentPageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="totalPages" type="Integer" default="0"/>
+    <aura:attribute name="pageList" type="List"/>
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="mainBody">
+		<div class="runReportButton">
+			<lightning:button variant="brand" label="Run Report" title="Run Report" onclick="{! c.runReport }" />
+		</div>
+        <div class="slds-grid runReportButton">
+            <div class="slds-col slds-size_1-of-4">
+            	<ui:inputDate aura:id="expdate" label="Display records from :" class="field" value="{!v.fromDate}" displayDatePicker="true" />  
+            </div>
+		</div>
+        <div class="refreshGrid runReportButton">
+			<lightning:button variant="brand" label="Go" title="refreshReports" onclick="{!c.doInit }" />
+		</div>
+		<lightning:card title="ATLAS report data">
+        <lightning:layout multipleRows="true" horizontalAlign="center">
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:datatable
+                                     aura:id="accountDataTable"
+                                     columns="{! v.columns }"
+                                     data="{! v.data }"
+                                     keyField="Id"
+                                     hideCheckboxColumn="true"/>
+			</lightning:layoutItem>
+			<lightning:layoutItem padding="around-small" flexibility="auto">
+                <lightning:button label="First" iconName="utility:left" iconPosition="left"
+                                  onclick="{!c.onFirst}" disabled="{! v.currentPageNumber == 1}"/>
+                <lightning:button iconName="utility:chevronleft" iconPosition="left"
+                                  onclick="{!c.onPrev}" disabled="{! v.currentPageNumber == 1}"/>
+                <span class="slds-p-horizontal_x-small">
+                    <a onclick="{!c.processMe}" name="1" 
+                       class="{! (v.currentPageNumber == 1) ? 'selected' : ''}">1</a>
+                </span>
+                <span class="slds-p-horizontal_xxx-small">
+                    ...
+                </span>
+                
+                <aura:iteration items="{!v.pageList}" var="item">
+                    <span class="slds-p-horizontal_x-small">
+                        <a onclick="{!c.processMe}" name="{!item}"
+                           class="{! (v.currentPageNumber == item) ? 'selected' : ''}">{!item}</a>
+                    </span>
+                </aura:iteration>
+                
+                <span class="slds-p-horizontal_xxx-small">
+                    ...
+                </span>
+                <span class="slds-p-horizontal_x-small">
+                    <a onclick="{!c.processMe}" name="{!v.totalPages}"
+                       class="{! (v.currentPageNumber == v.totalPages) ? 'selected' : ''}">{!v.totalPages}</a>
+                </span>
+                <lightning:button iconName="utility:chevronright" iconPosition="right" 
+                                  disabled="{! v.currentPageNumber == v.totalPages}" onclick="{!c.onNext}"/>
+                <lightning:button label="Last" iconName="utility:right" iconPosition="right" 
+                                  disabled="{! v.currentPageNumber == v.totalPages}" onclick="{!c.onLast}"/>
+            </lightning:layoutItem>
+			</lightning:layout>
+		</lightning:card>
+        
+    </div>
+</aura:component>

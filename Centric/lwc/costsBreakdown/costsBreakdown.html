@@ -1,0 +1,65 @@
+<template>
+    <div if:true={isGaslist}>
+		<div if:true={quoteTypeFlex}>
+			<vlocity_cmt-data-table
+				issortavailable="true"
+				columns={QUOTELISTGasCol_Flex}
+				records={QUOTELISTGasRec_Flex}
+				extraclass="nds-table_bordered" class="CostsBreakdownGas">
+				<vlocity_cmt-data-table-cell data-field-name="Component" style="max-width:2px;width:2px;" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="ChildComponent" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="Recovery" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="CostEndDate" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="Value_£" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="URate_£/MWh" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="URate_p/kWh" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="URate_p/th" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="StandingCharge" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+			</vlocity_cmt-data-table>
+		</div>
+		<div if:false={quoteTypeFlex}>
+			<vlocity_cmt-data-table
+				issortavailable="true"
+				columns={QUOTELISTGasCol}
+				records={QUOTELISTGasRec}
+				extraclass="nds-table_bordered" class="CostsBreakdownGas">
+				<vlocity_cmt-data-table-cell data-field-name="Fieldname" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="TotalValue" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="Percentage" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<!--<c-quote-price-read-more-cell data-field-name="ServicePointId" class="dataTableCell"></c-quote-price-read-more-cell>-->
+			</vlocity_cmt-data-table>
+		</div>
+    </div>   
+    <div if:false={isGaslist}>
+		<div if:true={quoteTypeFlex}>
+			<vlocity_cmt-data-table
+				issortavailable="true"
+				columns={QUOTELISTElecCol_Flex}
+				records={QUOTELISTElecRec_Flex}
+				extraclass="nds-table_bordered" class="CostsBreakdownElec">
+				<vlocity_cmt-data-table-cell data-field-name="Component" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="CostEndDate" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="Value_£" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="NBP_£/MWh" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="GSP_£/MWh" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="MSP_£/MWh" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="PassThrough" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+			</vlocity_cmt-data-table>
+		</div>
+		<div if:false={quoteTypeFlex}>
+			<vlocity_cmt-data-table
+				issortavailable="true"
+				columns={QUOTELISTElecCol}
+				records={QUOTELISTElecRec}
+				extraclass="nds-table_bordered" class="CostsBreakdownElec">
+				<vlocity_cmt-data-table-cell data-field-name="Fieldname" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="TotalValue" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="Percentage" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<vlocity_cmt-data-table-cell data-field-name="PassThrough" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+				<!--<c-quote-price-read-more-cell data-field-name="ServicePointId" class="dataTableCell"></c-quote-price-read-more-cell>-->
+			</vlocity_cmt-data-table>	
+		</div>
+		<br/>
+			<p style="color:blue;">Passthrough is not available for NHH meters</p>
+    </div>   
+</template>

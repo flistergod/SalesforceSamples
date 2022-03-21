@@ -1,0 +1,47 @@
+<template>
+    <div if:true={isGasList}>
+      <vlocity_cmt-data-table
+        issortavailable="true"
+        pagesize="10"
+        columns={ServicePointColGas}
+        records={ServicePointRec}
+        extraclass="nds-table_bordered"
+        issearchavailable="true"
+      >
+        <vlocity_cmt-data-table-cell data-field-name="ServicePointNumber" class="dataTableCell"></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="Status" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="ServicePointStartDate" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="EffectiveFromDate" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="EffectiveToDate" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="DealType" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="Consumption" class="dataTableCell"></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="AnnualSpend" class="dataTableCell"></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="ContractSpend" class="dataTableCell"></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="StandingCharge" class="dataTableCell"></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="UnitCharge" class="dataTableCell"></vlocity_cmt-data-table-cell>
+        <c-swan-c-l-i-data-table-cell data-field-name="vId" class="dataTableCell"></c-swan-c-l-i-data-table-cell> 
+      </vlocity_cmt-data-table>
+    </div>
+    <div if:false={isGasList}>
+        <vlocity_cmt-data-table
+        issortavailable="true"
+        pagesize="10"
+        columns={QUOTELISTElecCol}
+        records={QUOTELISTElecRec}
+        extraclass="nds-table_bordered"
+        issearchavailable="true">
+        <vlocity_cmt-data-table-cell data-field-name="ServicePointNumber" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="Status" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="ServicePointStartDate" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="EffectiveFromDate" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="EffectiveToDate" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <vlocity_cmt-data-table-cell data-field-name="DealType" class="dataTableCell" ></vlocity_cmt-data-table-cell>
+        <c-quote-price-read-more-cell data-field-name="Id" class="dataTableCell"></c-quote-price-read-more-cell>
+        <c-swan-c-l-i-data-table-cell data-field-name="vId" class="dataTableCell"></c-swan-c-l-i-data-table-cell> 
+    </vlocity_cmt-data-table>
+    </div>
+    <!-- </template>
+        <div if:false={isServicePointList} class="nds-box">
+        <p>{noRecords}</p>
+    </div>   -->
+</template>

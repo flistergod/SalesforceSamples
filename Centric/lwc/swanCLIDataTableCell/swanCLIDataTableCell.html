@@ -1,0 +1,15 @@
+<template>
+  <!--Custom data cell to display Interaction Name as link: Start-->
+  <div if:true={cellData} class="tableRowCell" extraclass="nds-table_bordered">
+    <vlocity_cmt-navigate-action
+      target-type="Record"
+      target-name="vlocity_cmt__ContractLineItem__c"
+      target-id={rowData.ViewRecord}
+      target-action="view"
+      use-href="true"
+    >
+      <vlocity_cmt-button variant="neutral" label="View Record" title="View Record" class="dataTableCell"></vlocity_cmt-button>
+    </vlocity_cmt-navigate-action>
+  </div>
+  <!--Custom data cell to display Interaction Name as link: End-->
+</template>

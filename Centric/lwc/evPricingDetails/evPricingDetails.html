@@ -1,0 +1,161 @@
+<template>
+<div class="card-size">
+<lightning-card title="Aggregate Level">
+<template if:true={price}>    
+    <table class="slds-table slds-table_bordered ">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col" class="slds-col slds-size_1-of-6"> 
+                    <div title="Value">Total</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6"> 
+                    <div title="Value">Spot Price</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6">
+                    <div title="Value">Lower Price</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6">
+                    <div title="Value">Higher Price</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6">
+                    <div title="Value">&nbsp;</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6">
+                    <div title="Value">&nbsp;</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>Total</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&#163; {price.aggregatedUpliftSpotPrice}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&#163; {price.aggregatedUpliftLowerRangePrice}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&#163; {price.aggregatedUpliftHigherRangePrice}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&nbsp;</div> 
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&nbsp;</div> 
+                    </th>
+                </tr>
+        </tbody>
+
+    </table>
+</template>
+</lightning-card>
+<lightning-card title="Site Level">
+    <template if:true={price}>
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col" class="slds-col slds-size_1-of-6">
+                    <div title="Key">Site</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6"> 
+                    <div title="Value">Spot Price</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6">
+                    <div title="Value">Lower Price</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6">
+                    <div title="Value">Higher Price</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6">
+                    <div title="Value">Uplift</div>
+                </th>
+                <th scope="col" class="slds-col slds-size_1-of-6">
+                    <div title="Value">&nbsp;</div>
+                </th>
+            </tr>
+        </thead>
+        <template if:true={showCard}> 
+        <tbody>
+            <template for:each={price.site} for:item="keyValue">
+                <template if:true={keyValue.combinationID}>
+                <tr key={keyValue.postCode}>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>{keyValue.postCode}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&#163; {keyValue.upliftSpotPrice}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&#163; {keyValue.upliftLowerRangePrice}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&#163; {keyValue.upliftHigherRangePrice}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>{keyValue.upliftPercentage} %</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <template if:true={keyValue.priceChanged}>
+                            <lightning-icon icon-name="utility:warning" alternative-text="Warning!" title="The Price has changed recently" variant="warning"></lightning-icon>
+                        </template>
+                    </th>
+                </tr>
+                </template>
+                <template if:false={keyValue.combinationID}>
+                <tr key={keyValue.postCode}>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>{keyValue.postCode}</div>
+                    </th>
+                     <td scope="col" class="slds-col slds-size_5-of-6" colspan="5">
+                        <div style="text-align: center;">Not Available</div>
+                    </td>
+                </tr>
+                </template>
+            </template>
+        </tbody>
+        </template> 
+                <template if:false={showCard}> 
+                    <template if:true={price.site.combinationID}>
+                <tbody>
+                <tr>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>{price.site.postCode}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&#163; {price.site.upliftSpotPrice}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&#163; {price.site.upliftLowerRangePrice}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>&#163; {price.site.upliftHigherRangePrice}</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>{price.site.upliftPercentage} %</div>
+                    </th>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <template if:true={price.site.priceChanged}>
+                            <lightning-icon icon-name="utility:warning" alternative-text="Warning!" title="The Price has changed recently" variant="warning"></lightning-icon>
+                        </template>
+                    </th>
+                </tr>
+                </tbody>
+                    </template>
+                    <template if:false={price.site.combinationID}>
+                <tr>
+                    <th scope="col" class="slds-col slds-size_1-of-6">
+                        <div>{price.site.postCode}</div>
+                    </th>
+                    <td scope="col" class="slds-col slds-size_5-of-6" colspan="5">
+                        <div style="text-align: center;">Not Available</div>
+                    </td>
+                </tr>
+                </template>
+        </template> 
+    </table>
+    </template>
+</lightning-card>
+</div>
+</template>

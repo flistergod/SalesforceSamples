@@ -1,0 +1,5 @@
+.THIS .isActivityLoading .slds-spinner_container {
+   position: relative !important;
+   top: 100px !important;
+   left: 250px !important;
+}

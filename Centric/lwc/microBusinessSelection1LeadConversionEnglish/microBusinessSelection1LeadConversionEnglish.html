@@ -1,0 +1,21 @@
+<template>
+        <lightning-combobox
+                name="customerSegment"
+                label="Customer Segment"
+                value={valueSegment}
+                placeholder="Select Segment"
+                options={optionsSegment}
+                onchange={handleChangeSegment}
+                required ></lightning-combobox>
+    
+        <lightning-combobox
+                name="microBusinessSelection"
+                label="Micro Business Selection"
+                value={valueMicroBusiness}
+                placeholder="Select Micro Business"
+                options={optionsMicroBusiness}
+                onchange={handleChangeMicroBusiness}
+                required
+                read-only=true ></lightning-combobox><!--
+                read-only={microBusinessReadOnly} ></lightning-combobox>-->
+</template>

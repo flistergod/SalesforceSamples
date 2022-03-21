@@ -1,0 +1,45 @@
+<aura:component controller="QUOTE_ANNEX" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>   
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+	<aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:attribute name="WRP" type="object"/>
+    <aura:attribute name="Spinner" type="boolean" default="true"/>
+     
+    <aura:if isTrue="{!and(!v.WRP.isAllowed,v.WRP.msg!=null)}">    
+        <ui:message title="Error" severity="error" closable="true">
+          {!v.WRP.msg}
+        </ui:message>    
+    </aura:if>    
+        
+    <aura:if isTrue="{!v.WRP.isAllowed}">   
+        <lightning:card iconName="doctype:attachment" title="Attachment(s)">    
+            <ui:message title="Confirmation" severity="confirm" closable="true">
+                {!v.WRP.msg}
+            </ui:message>     
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+            <thead>
+                <tr class="slds-text-title--caps"><th scope="col" colspan="2"><div class="slds-truncate">Below Document(s) generated</div></th></tr>
+            </thead>  
+            <tbody>
+            <aura:iteration items="{!v.WRP.AttList}" var="eachcsv" indexVar="i">
+                <tr>
+                    <td><lightning:icon iconName="doctype:excel" size="medium" alternativeText="Excel file"/></td>
+                    <th scope="row">
+                        <div class="slds-truncate" style="font-size: large"><a href="{!'/servlet/servlet.FileDownload?file='+eachcsv.Id}">{!eachcsv.Name}</a></div>
+                    </th>
+                </tr>
+            </aura:iteration>   
+            </tbody>
+        </table>
+        </lightning:card> 
+    </aura:if>  
+    
+    <aura:if isTrue="{!v.Spinner}">
+    	<div class="slds-p-horizontal--small slds-size--1-of-1">
+            <div class="slds-p-horizontal--small slds-size--1-of-1 isActivityLoading">
+                <!--<ui:spinner aura:id="spinner" isVisible="False" />-->
+                <lightning:spinner alternativeText="Loading" size="large" variant="brand"/>
+            </div>   
+   		</div>
+    </aura:if>
+</aura:component>

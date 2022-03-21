@@ -1,0 +1,153 @@
+<template>
+  <div class="slds-m-top_small"></div>
+  <!-- warning label showing n records per n pages-->
+  <!--search to filter table-->
+  <div class="slds-m-top_small"></div>
+  <lightning-layout multiple-rows="true" vertical-align="end">
+    <lightning-layout-item size="2" padding="around-small">
+      <lightning-input
+        name="enter-search"
+        label=""
+        type="text"
+        value={searchValue}
+        onchange={updateKey}
+      ></lightning-input>
+    </lightning-layout-item>
+    <!--button  to start filtering table-->
+    <lightning-layout-item size="1" padding="around-small">
+      <lightning-button
+        onclick={handleSearch}
+        label="Search"
+        variant="brand"
+      ></lightning-button>
+    </lightning-layout-item>
+    <lightning-layout-item size="8" padding="around-small" class="slds-align_absolute-center" style="color: rgb(107, 109, 112);">
+    
+        Nº of Service Points:<strong>&nbsp;{allRecordsSize} &nbsp;</strong>&emsp;&emsp;
+        Selected Gas:<strong>&nbsp;{gasSize} &nbsp;</strong>&emsp;&emsp;  
+        Selected Elec:<strong>&nbsp;{elecSize} &nbsp;</strong>
+    
+    </lightning-layout-item>
+    <lightning-layout-item size="1" padding="around-small">
+      <lightning-button
+        onclick={handleRefresh}
+        label="Refresh"
+        variant="brand"
+      ></lightning-button>
+    </lightning-layout-item>
+    </lightning-layout>
+
+    <!--table-->
+    <lightning-layout multiple-rows="true" vertical-align="end">
+    <lightning-layout-item size="12" padding="around-small">
+      <div class="slds-m-aroung_small">
+        <template if:true={showTable}>
+          <c-custom-data-table
+            key-field="Id"
+            data={recordsToDisplay}
+            columns={columns}
+            default-sort-direction={defaultSortDirection}
+            sorted-direction={sortDirection}
+            sorted-by={sortedBy}
+            onsort={onHandleSort}
+            draft-values={draftValues}
+            selected-rows={selectedRows}
+            >
+          </c-custom-data-table>
+        </template>
+      </div>
+    </lightning-layout-item>
+  </lightning-layout>
+  <lightning-layout multiple-rows="true" vertical-align="end">
+    <!--dropdown to list n rows per page-->
+    <lightning-layout-item size="2" padding="around-small">
+      <lightning-combobox
+        name="NumberOfRows"
+        label="Number of Rows"
+        value={numRow}
+        placeholder="5"
+        options={rowOptions}
+        onchange={changeNumRows}
+      ></lightning-combobox>
+    </lightning-layout-item>
+    <!--pagination buttons-->
+    <lightning-layout-item size="8" padding="around-small">
+      <div class="slds-m-aroung_small slds-align_absolute-center">
+        <lightning-spinner
+          if:true={isLoading}
+          alternative-text="Loading"
+          size="small"
+        ></lightning-spinner>
+        <div slot="actions">
+          <lightning-button
+            variant="neutral"
+            title="first"
+            label="First"
+            class="slds-float_left"
+            icon-name="utility:chevronleft"
+            icon-position="left"
+            onclick={handleClick}
+          ></lightning-button>
+          &nbsp;
+          <lightning-button
+            variant="neutral"
+            title="previous"
+            class="slds-float_left"
+            label="Previous"
+            icon-name="utility:chevronleft"
+            icon-position="left"
+            onclick={handleClick}
+          ></lightning-button>
+          <template if:true={pagelinks}>
+            <lightning-button-group>
+              <template for:each={pagelinks} for:item="page">
+                <lightning-button
+                  key={page}
+                  label={page}
+                  onclick={handlePage}
+                ></lightning-button>
+              </template>
+            </lightning-button-group>
+          </template>
+          <lightning-button
+            variant="neutral"
+            title="last"
+            class="slds-float_right"
+            label="Last"
+            icon-name="utility:chevronright"
+            icon-position="right"
+            onclick={handleClick}
+          ></lightning-button>
+          &nbsp;
+          <lightning-button
+            variant="neutral"
+            title="next"
+            class="slds-float_right"
+            label="Next"
+            icon-name="utility:chevronright"
+            icon-position="right"
+            onclick={handleClick}
+          ></lightning-button>
+        </div>
+      </div>
+    </lightning-layout-item>
+    <!--input for the page number-->
+    <lightning-layout-item size="1" padding="around-small">
+      <lightning-input
+        name="enter-page"
+        label="Page"
+        type="number"
+        value={pickedPage}
+        onchange={updatePickedPage}
+      ></lightning-input>
+    </lightning-layout-item>
+    <!--button to move to the inserted page number-->
+    <lightning-layout-item size="1" padding="around-small">
+      <lightning-button
+        onclick={goToPage}
+        label="Go"
+        variant="brand"
+      ></lightning-button>
+    </lightning-layout-item>
+  </lightning-layout>
+</template>

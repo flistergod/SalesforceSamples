@@ -1,0 +1,25 @@
+<aura:component controller="SWAN_RedirectForAdmin" implements="flexipage:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:appHostable" access="global" >
+    
+    
+    <aura:attribute name="sysAdmin" type="boolean" default="true"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute type="Contract" name="ContractRec"/>
+     
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:if isTrue="{!!v.sysAdmin}">
+     <div class="slds-notify slds-notify_toast slds-theme_error">
+            <span class="slds-assistive-text">error</span>
+            <div class="slds-notify__content">
+                <h5 class="slds-text-heading_small slds-align_absolute-center">Error Message </h5>
+                <br/>
+                <p class="slds-align_absolute-center">You don't have permission to edit the Contract. Please ask you system admin for any help.</p>                
+            </div>
+        </div>
+</aura:if> 
+    <aura:if isTrue="{!v.sysAdmin}">
+    <lightning:recordForm mode="Edit" recordId="{!v.recordId}" objectApiName="Contract" layoutType="Compact" columns="2" onsuccess="{!c.handleSuccess}"    />
+    </aura:if>
+    <lightning:navigation aura:id="navService"/>
+    <!--<button class="slds-button slds-button_brand" label="Edit" id="{!v.ContractRec.id}" onclick="{!c.setOutput}">Edit</button> -->
+</aura:component>

@@ -1,0 +1,64 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative">
+            <div if:false={cardLoaded} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: white; z-index: 99;">
+  <div>
+   <vlocity_cmt-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></vlocity_cmt-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                      <vlocity_cmt-flex-card-state   data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-around_none " style="             ">
+          <div class="slds-col    slds-p-around_x-small  slds-size_12-of-12  " style="     border-color:#cccccc;        ">
+    <vlocity_cmt-block  label="Block"  collapsible="false"  record={record}  collapsed-by-default="false"  card={card}  theme="slds" ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div class="slds-col  slds-border_top slds-border_left  slds-size_2-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;&nbsp;%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top  slds-size_3-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20%7C&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20BaseLoad%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top  slds-size_3-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%7C&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20Peak%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top  slds-size_2-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20%7C&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20Residual%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top slds-border_right  slds-size_2-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%7C&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20Total%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col   slds-size_12-of-12  " style="             border: 2px solid black;"><vlocity_cmt-data-table  issearchavailable="false"  issortavailable="true"  cell-level-edit="true"  pagelimit="3"  group-order="asc"  columns='\[{"fieldName":"Season","label":"Season","searchable":false,"sortable":false,"type":"text"},{"fieldName":"Quarter","label":"Quarter","searchable":false,"sortable":false,"type":"text"},{"fieldName":"Month","label":"Month","searchable":false,"sortable":false,"type":"text"},{"fieldName":"BaseloadClipMW","label":"Clip (MW)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"BaseloadVolumeMWh","label":"Volume (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"BaseloadReferencePrice","label":"Ref Price (£/MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"PeakClipMW","label":"Clip (MW)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"PeakVolumeMWh","label":"Volume (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"PeakReferencePrice","label":"Ref Price (£/MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"ResidualBuyMWh","label":"Buy (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"ResidualSellMWh","label":"Sell (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"ResidualTotalMWh","label":"Total (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"TotalMWh","label":"Volume (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"Id","label":"Id","searchable":false,"sortable":false,"type":"text","visible":"false"}]'  records={records}  styles='\{"cellMargin":[],"cellPadding":[],"tableBgColor":"","rowBgColor":"","headBgColor":"#e7e9f1","headFontWeight":"600"}'  theme="slds" ></vlocity_cmt-data-table>
+      </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                </template>
+                <template if:false={hasRecords}>
+                      <vlocity_cmt-flex-card-state   data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-around_none " style="             ">
+          <div class="slds-col    slds-p-around_x-small  slds-size_12-of-12  " style="     border-color:#cccccc;        ">
+    <vlocity_cmt-block  label="Block"  collapsible="false"  record={record}  collapsed-by-default="false"  card={card}  theme="slds" ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div class="slds-col  slds-border_top slds-border_left  slds-size_2-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;&nbsp;%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top  slds-size_3-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20%7C&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20BaseLoad%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top  slds-size_3-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%7C&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20Peak%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top  slds-size_2-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20%7C&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20Residual%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top slds-border_right  slds-size_2-of-12  " style="     border-color:#000; border-width:2px;       background-color:#e7e9f1"><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-color_default%22%3E%3Cstrong%3E&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%7C&nbsp;%20&nbsp;%20&nbsp;%20&nbsp;%20Total%3C/strong%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col   slds-size_12-of-12  " style="             border: 2px solid black;"><vlocity_cmt-data-table  issearchavailable="false"  issortavailable="true"  cell-level-edit="true"  pagelimit="3"  group-order="asc"  columns='\[{"fieldName":"Season","label":"Season","searchable":false,"sortable":false,"type":"text"},{"fieldName":"Quarter","label":"Quarter","searchable":false,"sortable":false,"type":"text"},{"fieldName":"Month","label":"Month","searchable":false,"sortable":false,"type":"text"},{"fieldName":"BaseloadClipMW","label":"Clip (MW)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"BaseloadVolumeMWh","label":"Volume (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"BaseloadReferencePrice","label":"Ref Price (£/MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"PeakClipMW","label":"Clip (MW)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"PeakVolumeMWh","label":"Volume (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"PeakReferencePrice","label":"Ref Price (£/MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"ResidualBuyMWh","label":"Buy (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"ResidualSellMWh","label":"Sell (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"ResidualTotalMWh","label":"Total (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"TotalMWh","label":"Volume (MWh)","searchable":false,"sortable":false,"type":"text"},{"fieldName":"Id","label":"Id","searchable":false,"sortable":false,"type":"text","visible":"false"}]'  records={records}  styles='\{"cellMargin":[],"cellPadding":[],"tableBgColor":"","rowBgColor":"","headBgColor":"#e7e9f1","headFontWeight":"600"}'  theme="slds" ></vlocity_cmt-data-table>
+      </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <vlocity_cmt-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onsetvalue={updateAction}>
+      
+      </vlocity_cmt-action>
+  
+            <vlocity_cmt-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onsetvalue={updateAction}>
+            
+            </vlocity_cmt-action>
+            </div>
+          </template>
