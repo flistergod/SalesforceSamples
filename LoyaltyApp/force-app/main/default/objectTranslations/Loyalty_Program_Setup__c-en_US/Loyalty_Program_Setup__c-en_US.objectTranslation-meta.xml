@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Loyalty Program Setup</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Loyalty Program Setups</value>
+    </caseValues>
+    <layouts>
+        <layout>Card Program Setup Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Hybrid Program Setup Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Paid Program Setup Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Partnered Program Setup Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Point Program Setup Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Setup Information --></label>
+            <section>Setup Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Spend Program Setup Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Setup Information --></label>
+            <section>Setup Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Tiered Program Setup Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Value Program Setup Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Card Program Setup --></label>
+        <name>Card_Program_Setup</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Hybrid Program Setup --></label>
+        <name>Hybrid_Program_Setup</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Paid Program Setup --></label>
+        <name>Paid_Program_Setup</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Partnered Program Setup --></label>
+        <name>Partnered_Program_Setup</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Point Program Setup --></label>
+        <name>Point_Program_Setup</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Spend Program Setup --></label>
+        <name>Spend_Program_Setup</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Tiered Program Setup --></label>
+        <name>Tiered_Program_Setup</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Value Program Setup --></label>
+        <name>Value_Program_Setup</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

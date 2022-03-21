@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Card Program</masterLabel>
+        <translation><!-- Card Program --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hybrid Program</masterLabel>
+        <translation><!-- Hybrid Program --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Paid Program</masterLabel>
+        <translation><!-- Paid Program --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partnered Program</masterLabel>
+        <translation><!-- Partnered Program --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Point Program</masterLabel>
+        <translation><!-- Point Program --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Spend Program</masterLabel>
+        <translation><!-- Spend Program --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tiered Program</masterLabel>
+        <translation><!-- Tiered Program --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Value Program</masterLabel>
+        <translation><!-- Value Program --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

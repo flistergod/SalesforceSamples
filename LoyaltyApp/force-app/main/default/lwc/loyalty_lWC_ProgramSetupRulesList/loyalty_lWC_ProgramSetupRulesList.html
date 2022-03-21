@@ -1,0 +1,157 @@
+<template>
+    <div>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-custom-custom48">
+                                <lightning-icon icon-name="custom:custom48" alternative-text={label.Loyalty_Program_Setup_Rules}
+                                    title={label.Loyalty_Program_Setup_Rules} size="medium"></lightning-icon>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span>{label.Loyalty_Program_Setup_Rules}</span>
+                                        <template if:false={isNoProgramSetupListViews}>
+                                        <span class="slds-page-header__title slds-truncate" title="Recently Viewed">Recently
+                                            Viewed</span>
+                                        </template>
+                                    </h1>
+                                </div>
+                                
+                                <template if:false={isNoProgramSetupListViews}>
+                                    <div class="slds-page-header__name-switcher">
+                                        <div id="loyaltyProgramSetupsListView"
+                                            class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                                            <button class="slds-button slds-button_icon slds-button_icon-x-small"
+                                                aria-haspopup="true" title="Switch list view">
+                                                <lightning-icon icon-name="utility:down"
+                                                    alternative-text="Down" title="Down"
+                                                    size="x-small"></lightning-icon>
+                                                <span class="slds-assistive-text">Switch list view</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-page-header__col-actions">
+                    <div class="slds-page-header__controls">
+                        <div class="slds-page-header__control">
+                            <ul class="slds-button-group-list">
+                                <li>
+                                    <c-loyalty_L-W-C_-create-loyalty-setup-rule-modal onnewbonusrule={handleNewBonusRuleCreated}></c-loyalty_L-W-C_-create-loyalty-setup-rule-modal>
+                                </li>
+                                <!-- <li>
+                                    <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                                        <button class="slds-button slds-button_icon slds-button_icon-border-filled"
+                                            aria-haspopup="true" title="More Actions">
+                                            <lightning-icon icon-name="utility:down"
+                                                alternative-text={label.Loyalty_Summary} title={label.Loyalty_Summary}
+                                                size="x-small"></lightning-icon>
+                                            <span class="slds-assistive-text">More Actions</span>
+                                        </button>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-meta">
+                    <p class="slds-page-header__meta-text">{totalrecords} {label.Loyalty_Items}</p><!-- • {label.Loyalty_Page} <b>{currentpage}</b> {label.Loyalty_Of} <b> {totalpages}</b>-->
+                </div>
+                <!-- <div class="slds-page-header__col-controls">
+                    <div class="slds-page-header__controls">
+                        <div class="slds-page-header__control">
+                            <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                                <button class="slds-button slds-button_icon slds-button_icon-more" aria-haspopup="true"
+                                    title="List View Controls">
+                                    <lightning-icon icon-name="utility:settings" alternative-text={label.Loyalty_Summary}
+                                        title={label.Loyalty_Summary} size="x-small"></lightning-icon>
+                                    <lightning-icon icon-name="utility:down" alternative-text={label.Loyalty_Summary}
+                                        title={label.Loyalty_Summary} size="x-small"></lightning-icon>
+                                    <span class="slds-assistive-text">List View Controls</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="slds-page-header__control">
+                            <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                                <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true"
+                                    title="Change view">
+                                    <lightning-icon icon-name="utility:table" alternative-text={label.Loyalty_Summary}
+                                        title={label.Loyalty_Summary} size="x-small"></lightning-icon>
+                                    <lightning-icon icon-name="utility:down" alternative-text={label.Loyalty_Summary}
+                                        title={label.Loyalty_Summary} size="x-small"></lightning-icon>
+                                    <span class="slds-assistive-text">Change view</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="slds-page-header__control">
+                            <button class="slds-button slds-button_icon slds-button_icon-border-filled" title="Edit List">
+                                <lightning-icon icon-name="utility:edit" alternative-text={label.Loyalty_Summary}
+                                    title={label.Loyalty_Summary} size="x-small"></lightning-icon>
+                                <span class="slds-assistive-text">Edit List</span>
+                            </button>
+                        </div>
+                        <div class="slds-page-header__control">
+                            <button class="slds-button slds-button_icon slds-button_icon-border-filled"
+                                title="Refresh List">
+                                <lightning-icon icon-name="utility:refresh" alternative-text={label.Loyalty_Summary}
+                                    title={label.Loyalty_Summary} size="x-small"></lightning-icon>
+                                <span class="slds-assistive-text">Refresh List</span>
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div  style="height: 700px;">
+            <c-loyalty-lightning-datatable
+                    key-field="Id"
+                    columns={programSetupColumns}
+                    data={programSetups}
+                    hide-checkbox-column
+                    default-sort-direction={defaultSortDirection}
+                    sorted-direction={sortDirection}
+                    sorted-by={sortedBy}
+                    onsort={onHandleSort}
+                    onrowaction={handleRowAction}
+                    enable-infinite-loading="true"
+                    onloadmore={loadMoreData}>
+            </c-loyalty-lightning-datatable>
+            <template if:true={isEditingBonusRule}>
+                <c-loyalty_L-W-C_-create-loyalty-setup-rule-modal 
+                    isedit={isEditingBonusRule} 
+                    bonusruleid={editingBonusRuleId} 
+                    onnewbonusrule={handleNewBonusRuleCreated}
+                    oneditbonusrule={handleEditBonusRuleCreated}
+                    onmodalclose={handleEditBonusRuleModalClose}>
+                </c-loyalty_L-W-C_-create-loyalty-setup-rule-modal>
+            </template>
+            <template if:true={isConfirmActivateDeactivateRule}>
+                <c-loyalty_L-W-C_-confirmation-modal 
+                    openmodal="true"
+                    modaltitle={activateDeactivateRuleTitle}
+                    modalmessage={activateDeactivateRuleMessage}
+                    recordid={activateDeactivateRuleId}
+                    newstatus={ruleNewStatus}
+                    confirmbuttonlabel={label.Loyalty_Confirm}
+                    onconfirm={handleActivateDeactivateConfirmEvent}
+                    onmodalclose={handleActivateDeactivateRuleModalClose}>
+                </c-loyalty_L-W-C_-confirmation-modal>
+            </template>
+        </div>
+        <!-- <div class="slds-var-m-around_medium">  
+            <c-loyalty_L-W-C_-Loyalty-paginator onloyaltyprevious={handleLoyaltyPrevious} onloyaltynext={handleLoyaltyNext} onloyaltyfirst={handleLoyaltyFirst}  
+              onloyaltylast={handleLoyaltyLast} currentpage={currentpage} totalrecords={totalrecords} pagesize={pagesize}>  
+            </c-loyalty_L-W-C_-Loyalty-paginator>  
+        </div>   -->
+    </div>
+</template>

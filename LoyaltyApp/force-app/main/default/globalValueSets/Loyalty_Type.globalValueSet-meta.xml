@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Point Program</fullName>
+        <default>false</default>
+        <label>Point Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Spend Program</fullName>
+        <default>false</default>
+        <label>Spend Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Tiered Program</fullName>
+        <default>false</default>
+        <label>Tiered Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Paid Program</fullName>
+        <default>false</default>
+        <label>Paid Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Value Program</fullName>
+        <default>false</default>
+        <label>Value Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Partnered Program</fullName>
+        <default>false</default>
+        <label>Partnered Program</label>
+    </customValue>
+    <customValue>
+        <fullName>Hybrid Program</fullName>
+        <default>false</default>
+        <label>Hybrid Program</label>
+    </customValue>
+    <masterLabel>Loyalty Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Purchases_Mandatory__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Defines if the quantity of purchases is mandatory to achieve the loyalty level</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Defines if the quantity of purchases is mandatory to achieve the loyalty level</inlineHelpText>
+    <label>Is Purchases Mandatory</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Loyalty_Add_Field_Rule</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Add Field Rule</shortDescription>
+        <value>Add Field Rule</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Add_Inner_Group</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Add Inner Group</shortDescription>
+        <value>Add Inner Group</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_And</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty And</shortDescription>
+        <value>AND</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Assign_Points</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Assign Points</shortDescription>
+        <value>Assign points</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Back</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Bonus_Actions</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Bonus Actions</shortDescription>
+        <value>Bonus Actions</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Bonus_Conditions</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Bonus Conditions</shortDescription>
+        <value>Bonus Conditions</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Bonus_Summary</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Bonus Summary</shortDescription>
+        <value>Bonus Summary</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Cancel</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Close</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Custom_Behaviour_Description</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Custom Behaviour Description</shortDescription>
+        <value>The client can complete this behaviour</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Customer_Purchases_Made</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loyalty Customer Purchases Made</shortDescription>
+        <value>Purchases Made</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Customer_Summary</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Customer Summary</shortDescription>
+        <value>Loyalty Summary</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Deactivate</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Deactivate</shortDescription>
+        <value>Deactivate</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Delete</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Edit</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Expired_Points</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Expired Points</shortDescription>
+        <value>Expired Points</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Expiring_Points</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Expiring Points</shortDescription>
+        <value>Expiring Points</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Expiring_on</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Expiring on</shortDescription>
+        <value>Expiring on</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Factor</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Factor</shortDescription>
+        <value>Factor</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Factor_Operator</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Factor Operator</shortDescription>
+        <value>Factor Operator</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Factor_Type</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Factor Type</shortDescription>
+        <value>Factor Type</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Factor_Type_Value</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Factor Type Value</shortDescription>
+        <value>Factor Type Value</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Field</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Field</shortDescription>
+        <value>Field</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Field_Value</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Field Value</shortDescription>
+        <value>Field Value</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_First</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty First</shortDescription>
+        <value>First</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Fixed_Value</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Fixed Value</shortDescription>
+        <value>Fixed Value</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Forth</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Forth</shortDescription>
+        <value>Forth</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_General_Information</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty General Information</shortDescription>
+        <value>General Information</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Items</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Items</shortDescription>
+        <value>Items</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Last</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Last</shortDescription>
+        <value>Last</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Limitations</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Limitations</shortDescription>
+        <value>Limitations</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Mandatory_Information_Not_Filled</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Mandatory Information Not Filled</shortDescription>
+        <value>The mandatory information is not filled in</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_New_Program_Setup_Rule</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty New Program Setup Rule</shortDescription>
+        <value>New Program Setup Rule</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_New_Setup_Rule</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty New Setup Rule</shortDescription>
+        <value>Create New Setup Rule</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Next</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Number_of_Purchases</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Number of Purchases</shortDescription>
+        <value>Number of Purchases</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Of</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Of</shortDescription>
+        <value>of</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Operator</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Operator</shortDescription>
+        <value>Operator</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Opportunity</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Opportunity</shortDescription>
+        <value>Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Or</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Or</shortDescription>
+        <value>OR</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Order</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Order</shortDescription>
+        <value>Sales Order</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Page</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Page</shortDescription>
+        <value>Page</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Points</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Points</shortDescription>
+        <value>Points</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Previous</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Previous</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Products_Quantity</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Products Quantity</shortDescription>
+        <value>Products Quantity</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Program_Setup</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Program Setup</shortDescription>
+        <value>Loyalty Program Setup</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Program_Setup_Rules</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Program Setup Rules</shortDescription>
+        <value>Loyalty Program Setup Rules</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Program_Setups</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loyalty Program Setups</shortDescription>
+        <value>Loyalty Program Setups</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Remove_Field_Rule</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Remove Field Rule</shortDescription>
+        <value>Remove Field Rule</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Remove_Inner_Group</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Remove Inner Group</shortDescription>
+        <value>Remove Inner Group</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Reward_Values</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reward Values</shortDescription>
+        <value>Reward Values</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Running_Time</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Running Time</shortDescription>
+        <value>Running Time</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Save</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Select_Factor_Type</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Select Factor Type</shortDescription>
+        <value>Select Factor Type</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Select_Field</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Select Field</shortDescription>
+        <value>Select Field</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Select_Object</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Select Object</shortDescription>
+        <value>Select Object</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Select_Object_Placeholder</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Select Object Placeholder</shortDescription>
+        <value>Select the database object</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Select_Operator</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Select Operator</shortDescription>
+        <value>Select Operator</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Status</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Summary</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Summary</shortDescription>
+        <value>Loyalty Summary</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Times_Per</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Times Per</shortDescription>
+        <value>times per</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Times_Per_Select_Placeholder</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Recurrence Placeholder</shortDescription>
+        <value>Select the recurrence</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Total_Points</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Total Points</shortDescription>
+        <value>Total Points</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Type</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Used_Points</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Used Points</shortDescription>
+        <value>Used Points</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Valid_From</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Valid From</shortDescription>
+        <value>Valid from</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Valid_To</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Valid To</shortDescription>
+        <value>Valid to</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Value</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Value</shortDescription>
+        <value>Value</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Without_Bonus_Conditions_Defined</fullName>
+        <categories>Loyalty</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty Without Bonus Conditions Defined</shortDescription>
+        <value>There are no bonus conditions defined</value>
+    </labels>
+</CustomLabels>

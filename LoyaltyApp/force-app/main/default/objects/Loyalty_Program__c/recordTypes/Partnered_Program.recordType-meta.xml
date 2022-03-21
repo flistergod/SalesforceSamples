@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partnered_Program</fullName>
+    <active>true</active>
+    <description>Create partnerships type of program</description>
+    <label>Partnered Program</label>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Partnered Program</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,79 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName"
+    controller="Loyalty_Ctrl_LoyaltyValue" access="global">
+    <!-- component attribute -->
+    <aura:attribute name="LoyaltyValuesSummary" type="Object" />
+    <!-- end component attributes -->
+
+    <!-- component handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- end component handlers -->
+
+    <lightning:card footer="" title="">
+        <div class="slds-page-header">
+          <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+              <div class="slds-media">
+                <div class="slds-media__figure">
+                  <lightning:icon iconName="custom:custom1" alternativeText="{!$Label.c.Loyalty_Summary}" title="{!$Label.c.Loyalty_Summary}" size="medium"/>
+                </div>
+                <div class="slds-media__body">
+                  <div class="slds-page-header__name">
+                    <div class="slds-page-header__name-title">
+                      <h1>
+                        <span class="slds-page-header__title slds-truncate" title="{!v.LoyaltyValuesSummary.CustomerLoyaltyLevel}">{!v.LoyaltyValuesSummary.CustomerLoyaltyLevel}</span>
+                      </h1>
+                    </div>
+                  </div>
+                  <p class="slds-page-header__name-meta">{!v.LoyaltyValuesSummary.CustomerName} • {!v.LoyaltyValuesSummary.PurchasesQuantity}&nbsp;{!$Label.c.Loyalty_Customer_Purchases_Made}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="slds-var-p-horizontal_small slds-var-p-top_large">
+          <div class="slds-align_absolute-center">
+            <article class="slds-tile slds-media">
+              <div class="slds-media__figure">
+                <lightning:icon iconName="custom:custom11" alternativeText="{!$Label.c.Loyalty_Total_Points}" title="{!$Label.c.Loyalty_Total_Points}" size="medium"/>&nbsp;
+              </div>
+              <div class="slds-media__body">
+                <h3 class="slds-text-heading_large slds-truncate" title="{!$Label.c.Loyalty_Total_Points}">
+                  <a href="javascript:void(0);" onclick="{!c.gotoLoyaltyValuesList}">
+                    <lightning:formattedText class="" value="{!(v.LoyaltyValuesSummary.Points > 0 ? ''+v.LoyaltyValuesSummary.Points : ''+v.LoyaltyValuesSummary.SpendPoints)}"/>
+                    <lightning:formattedText value="{!' '+$Label.c.Loyalty_Points}" />
+                  </a>
+                </h3>
+              </div>
+            </article>
+          </div>
+          <div class="c-container">
+            <lightning:layout horizontalAlign="space">
+              <lightning:layoutItem padding="around-small">
+                <div class="header-column slds-border_left slds-var-p-around_small">
+                    <p class="field-title slds-text-color_success slds-text-title_caps" title="{!$Label.c.Loyalty_Used_Points}">{!$Label.c.Loyalty_Used_Points}</p>
+                    <p>{!v.LoyaltyValuesSummary.UsedPoints}<lightning:formattedText value="{!' '+$Label.c.Loyalty_Points}" /></p>
+                </div>
+              </lightning:layoutItem>
+              <lightning:layoutItem padding="around-small">
+                <div class="header-column slds-border_left slds-var-p-around_small">
+                  <aura:If isTrue="{!v.LoyaltyValuesSummary.NextExpiringPointsDate != null}">
+                    <p class="field-title slds-text-color_error slds-text-title_caps" title="{!$Label.c.Loyalty_Expiring_Points}">{!$Label.c.Loyalty_Expiring_on}&nbsp;<lightning:formattedDateTime class="" value="{!v.LoyaltyValuesSummary.NextExpiringPointsDate}"/></p>
+                    <aura:set attribute="else">
+                      <p class="field-title slds-text-color_error slds-text-title_caps" title="{!$Label.c.Loyalty_Expiring_Points}">{!$Label.c.Loyalty_Expiring_Points}</p>
+                    </aura:set>
+                  </aura:If>
+                  <p>{!v.LoyaltyValuesSummary.ExpiringPoints}<lightning:formattedText value="{!' '+$Label.c.Loyalty_Points}" /></p>
+                </div>
+              </lightning:layoutItem>
+              <lightning:layoutItem padding="around-small">
+                <div class="header-column slds-border_left slds-var-p-around_small">
+                    <p class="field-title slds-text-color_weak slds-text-title_caps" title="{!$Label.c.Loyalty_Expired_Points}">{!$Label.c.Loyalty_Expired_Points}</p>
+                    <p>{!v.LoyaltyValuesSummary.ExpiredPoints}<lightning:formattedText value="{!' '+$Label.c.Loyalty_Points}" /></p>
+                </div>
+              </lightning:layoutItem>
+            </lightning:layout>
+          </div>
+        </p>
+    </lightning:card>
+</aura:component>

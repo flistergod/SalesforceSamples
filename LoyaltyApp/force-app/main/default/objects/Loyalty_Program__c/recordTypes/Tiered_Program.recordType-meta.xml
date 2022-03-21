@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tiered_Program</fullName>
+    <active>true</active>
+    <description>Tiered levels type program</description>
+    <label>Tiered Program</label>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Tiered Program</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

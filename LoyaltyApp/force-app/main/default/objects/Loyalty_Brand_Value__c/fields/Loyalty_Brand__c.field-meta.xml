@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loyalty_Brand__c</fullName>
+    <externalId>false</externalId>
+    <label>Loyalty Brand</label>
+    <referenceTo>Loyalty_Brand__c</referenceTo>
+    <relationshipLabel>Loyalty Brand Values</relationshipLabel>
+    <relationshipName>Loyalty_Brand_Values</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,3 @@
+public interface Loyalty_I_ManageLevels {
+    Loyalty_Program_Setup_Level__c calculateNewCustomerLoyaltyLevel(integer customerTotalSpendPoints, integer customerTotalBoughtItems, integer customerTotalPurchases, Id accountId, Loyalty_Program_Setup__c programSetup, Loyalty_Program_Member__c customerProgramMember);
+}

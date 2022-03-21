@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#B51F40</headerColor>
+        <logo>FindLogo</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Loyalty Membership Management</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>Loyalty_Program__c</tabs>
+    <tabs>Loyalty_Business_Group__c</tabs>
+    <tabs>Loyalty_Brand__c</tabs>
+    <tabs>Loyalty_Reward__c</tabs>
+    <tabs>Loyalty_Level__c</tabs>
+    <tabs>Loyalty_Program_Setup_Rules</tabs>
+    <tabs>Loyalty_Reward_Values</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Membership_Management_UtilityBar</utilityBar>
+</CustomApplication>

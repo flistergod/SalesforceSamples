@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event for Loyalty Global Component Service">
+    <aura:attribute name="MethodName" type="String"/>
+    <aura:attribute name="MethodParams" type="String"/>
+</aura:event>

@@ -1,0 +1,72 @@
+.lgc-bg {
+    background-color: rgb(242, 242, 242);
+}
+
+ 
+.lgc-bg-inverse {
+    background-color: rgb(22, 50, 92);
+}
+
+.body {
+    background-color: rgb(250, 250, 249) !important; 
+    
+}
+ 
+
+.label-hidden > label {
+    display: none !important;
+}
+ 
+.icon_custom_class{
+    margin-top: 5px;
+}
+ 
+.current_filter {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.25;
+    display: block;
+    cursor: pointer;
+    
+}
+ 
+.current_filter:hover {
+    text-decoration: underline;
+}
+ 
+.custom_list_view {
+    max-width: max-content;
+}
+ 
+.button_class {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+ 
+.list_view_container {
+    max-width: max-content;
+}
+ 
+.list_view_and_table_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slds-dropdown_large{
+    min-width: 48em !important;
+    max-width: 600px !important;
+    
+}
+
+.my-icon {
+    --sds-c-icon-color-foreground-default: rgb(157,31,57,1);
+    
+
+}
+.slds-button:hover{
+    --sds-c-icon-color-foreground-default: rgb(157,31,57,1);
+}

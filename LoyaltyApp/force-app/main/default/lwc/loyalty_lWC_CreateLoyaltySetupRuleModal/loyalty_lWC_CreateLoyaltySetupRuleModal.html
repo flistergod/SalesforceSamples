@@ -1,0 +1,284 @@
+<template>
+    <template if:false={isedit}>
+        <lightning-button label={label.Loyalty_New_Setup_Rule} onclick={showModal}> </lightning-button>
+    </template>
+    <template if:true={openModal}>
+        <div class="slds-modal slds-fade-in-open slds-backdrop">  
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title={label.Loyalty_Close} onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">{label.Loyalty_Close}</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><b>{modalTitle}</b></h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-var-p-around_medium" id="modal-content-id-1">
+                    <lightning-record-edit-form onload={handleFormLoad} object-api-name="Loyalty_Program_Setup_Rules__c">
+                        <div class="stepOne">
+                            <h2 class="slds-text-heading_medium slds-hyphenate"><b>{label.Loyalty_General_Information}</b></h2>
+                            <br/>
+                            <lightning-input-field field-name="Name" required value={ruleName} onchange={handleRuleNameChange}>
+                            </lightning-input-field>
+                            <lightning-input-field field-name="Rule_Status__c" required value={ruleStatus} onchange={handleRuleStatusChange}>
+                            </lightning-input-field>
+                            <lightning-input-field field-name="Loyalty_Program_Setup__c" required value={ruleProgramSetupId} onchange={handleRuleProgramSetupChange}>
+                            </lightning-input-field>
+                            <lightning-input-field field-name="Description__c" value={ruleDescription} onchange={handleRuleDescriptionChange}>
+                            </lightning-input-field>
+                        </div>
+                        <div class="stepTwo slds-hide">
+                            <h2 class="slds-text-heading_medium slds-hyphenate"><b>{label.Loyalty_Bonus_Conditions}</b></h2>
+                            <div class="slds-page-header">
+                                <div class="slds-page-header__row">
+                                  <div class="slds-page-header__col-title">
+                                    <div class="slds-media">
+                                      <div class="slds-media__body">
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-col slds-size_6-of-12">
+                                                <div class="slds-float_left">
+                                                    <lightning-combobox
+                                                        name="objectselect"
+                                                        label={label.Loyalty_Select_Object}
+                                                        value={objectSelectedValue}
+                                                        placeholder={label.Loyalty_Select_Object_Placeholder}
+                                                        options={objectOptions}
+                                                        onchange={handleObjectSelectedChange} >
+                                                    </lightning-combobox>
+                                                </div>
+                                            </div>
+                                            <div class="slds-col slds-size_6-of-12">
+                                                <lightning-button label={label.Loyalty_Add_Inner_Group} variant="brand" class="slds-float_right" onclick={addInnerGroup}></lightning-button>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="loyalty-rule-inner-groups-container">
+                                            <template for:each={dataForDynamicConditionRules} for:item="item">
+                                                <c-Loyalty-Rule-Generator
+                                                    key={item.requiredKey}
+                                                    iterationkey={item.requiredKey}
+                                                    iseditting={isedit}
+                                                    editingcondition={item.innerGroupCondition}
+                                                    editingrules={item.innerGroupRules}
+                                                    sobjectfields={setupRuleFields}
+                                                    onloyaltyremoveinnergroup={removeInnerGroup}
+                                                    onloyaltyinnergroupcondition={innerGroupConditionChange}
+                                                    onloyaltyinnergrouprules={innerGroupRulesChange}>
+                                                </c-Loyalty-Rule-Generator>
+                                            </template>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <hr/>
+                              <lightning-input class="running-time-input slds-var-p-top_x-small" name="checkrunningtime" type="checkbox" label={label.Loyalty_Running_Time} value={runningTimeChecked} checked={runningTimeChecked} onchange={handleRunningTimeChange} ></lightning-input>
+                              <div class="slds-grid slds-wrap slds-grid_align-center runningTime slds-hide">
+                                <div class="slds-col slds-size_10-of-12">
+                                    <ul class="slds-list_horizontal slds-has-block-links_space">
+                                        <li>
+                                            <lightning-input type="date" class="running-time-input" name="validfrom" label={label.Loyalty_Valid_From} format="dd/MM/yyyy" min={getMinValidFromDate} onchange={handleDateValidFromChange} value={validFromDateString} required={isRunningTimeRequired}></lightning-input>
+                                        </li>
+                                        <li>
+                                            <lightning-input type="date" class="running-time-input" name="validto" label={label.Loyalty_Valid_To} format="dd/MM/yyyy" min={getMinValidToDate} onchange={handleDateValidToChange} value={validToDateString} required={isRunningTimeRequired}></lightning-input>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                              <hr/>
+                              <lightning-input class="slds-var-p-top_x-small" type="checkbox" label={label.Loyalty_Limitations} value={limitationsChecked} checked={limitationsChecked} onchange={handleLimitationsChange} ></lightning-input>
+                              <div class="slds-grid slds-wrap slds-grid_align-center limitations slds-hide">
+                                <div class="slds-col slds-size_10-of-12">
+                                    <ul class="slds-list_horizontal slds-has-block-links_space">
+                                        <li class="slds-var-p-top_x-small">
+                                            <span>{label.Loyalty_Custom_Behaviour_Description}&nbsp;</span>
+                                        </li>
+                                        <li>
+                                            <lightning-input class="loyalty-remove-label" variant="label-hidden" type="number" label="" value={behaviourNumber} onchange={handleBehaviourNumberChange} required={isLimitationsRequired}></lightning-input>
+                                        </li>
+                                        <li class="slds-var-p-top_x-small">
+                                            <span>&nbsp;{label.Loyalty_Times_Per}&nbsp;</span>
+                                        </li>
+                                        <li>
+                                            <lightning-combobox
+                                                name="behaviourtimesperselect"
+                                                label=""
+                                                class="loyalty-remove-label"
+                                                value={behaviourFactor}
+                                                required={isLimitationsRequired}
+                                                placeholder={label.Loyalty_Times_Per_Select_Placeholder}
+                                                variant="label-hidden"
+                                                options={limitationsOptions}
+                                                onchange={handleBehaviourFactorChange} >
+                                            </lightning-combobox>
+                                        </li>
+                                    </ul>
+                                </div>
+                              </div>
+                              <hr/>
+                        </div>
+                        <div class="stepThree slds-hide">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_7-of-12">
+                                    <h2 class="slds-text-heading_medium slds-hyphenate"><b>{label.Loyalty_Bonus_Actions}</b></h2>
+                                    <br/>
+                                    <span class="">{label.Loyalty_Assign_Points}</span>
+                                    <div class="slds-var-p-top_large">
+                                        <lightning-radio-group name="radioGroup"
+                                            label={label.Loyalty_Type}
+                                            options={assignPointsOptions}
+                                            value={assignPointsOptionValue}
+                                            onchange={handleRadioTypeChange}
+                                            type="radio">
+                                        </lightning-radio-group>
+                                    </div>
+                                    <div class="slds-var-p-top_medium">
+                                        <div class="assignpoints">
+                                            <lightning-input type="number" name="assignpointsfield" class="slds-float_left" label={label.Loyalty_Points} value={assignPointsValue} onchange={assignPointsChange} required={isPointsFactorNotRequired}></lightning-input>
+                                        </div>
+                                        <div class="assignpointsfactor slds-hide">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_4-of-12">
+                                                    <lightning-input type="number" name="assignpointsfactorfield" class="slds-float_left" label={label.Loyalty_Points} value={assignPointsValue} onchange={assignPointsChange} required={isPointsFactorRequired}></lightning-input>
+
+                                                </div>
+                                                <div class="slds-col slds-size_4-of-12">
+                                                    <div class="slds-float_left">
+                                                        <lightning-combobox
+                                                            name="factortype"
+                                                            label={label.Loyalty_Factor_Type}
+                                                            value={selectedFactorType}
+                                                            placeholder={label.Loyalty_Select_Factor_Type}
+                                                            options={factorTypeOptions}
+                                                            onchange={handleFactorTypeChange}
+                                                            required={isPointsFactorRequired}>
+                                                        </lightning-combobox>
+                                                    </div>
+                                                </div>
+                                                <div class="slds-col slds-size_4-of-12 factor-type-field slds-hide">
+                                                    <div class="slds-float_left">
+                                                        <lightning-combobox
+                                                            name="factorfield"
+                                                            label={label.Loyalty_Factor_Type_Value}
+                                                            value={selectedField}
+                                                            placeholder={label.Loyalty_Select_Field}
+                                                            options={sobjectFields}
+                                                            onchange={handleFieldChange}
+                                                            required={isFactorTypeFieldRequired}>
+                                                        </lightning-combobox>
+                                                    </div>
+                                                </div>
+                                                <div class="slds-col slds-size_4-of-12 factor-type-value">
+                                                    <lightning-input type="number" name="assignfactortypevalue" class="slds-float_left" label={label.Loyalty_Factor_Type_Value} value={assignFactorTypeValue} onchange={assignFactorTypeValueChange} required={isFactorTypeFieldNotRequired}></lightning-input>
+
+                                                </div>
+                                                <div class="slds-col slds-size_4-of-12">
+                                                        <lightning-combobox
+                                                            name="factoroperator"
+                                                            label={label.Loyalty_Factor_Operator}
+                                                            value={selectedFactorOperator}
+                                                            placeholder="Operator"
+                                                            options={factorOperatorOptions}
+                                                            onchange={handleFactorOperatorChange}
+                                                            required={isPointsFactorRequired}>
+                                                        </lightning-combobox>
+                                                </div>
+                                                <div class="slds-col slds-size_4-of-12">
+                                                    <lightning-input type="number" name="assignfactorfield" class="slds-float_left" label={label.Loyalty_Factor} value={assignPointsFactorValue} onchange={assignPointsFactorChange} required={isPointsFactorRequired}></lightning-input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="loyalty-summary slds-col slds-size_5-of-12 slds-border_left slds-var-p-left_x-small">
+                                    <span class="slds-badge"><b>{label.Loyalty_Bonus_Summary}</b></span>
+                                    <div class="alerts slds-var-p-around_x-large">
+                                        <template if:false={isMandatoryDataFilled}>
+                                            <span class="slds-badge slds-theme_error">
+                                                <span class="slds-badge__icon slds-badge__icon_left">
+                                                    <lightning-icon icon-name="utility:error"
+                                                    alternative-text="error"
+                                                    variant="inverse"
+                                                    size="xx-small" ></lightning-icon>
+                                                </span>
+                                                {label.Loyalty_Mandatory_Information_Not_Filled}
+                                            </span>
+                                            <br/>
+                                        </template>
+                                        <template if:false={isAnyBonusConditionDefined}>
+                                            <span class="slds-badge slds-theme_warning">
+                                                <span class="slds-badge__icon slds-badge__icon_left">
+                                                    <lightning-icon icon-name="utility:alert"
+                                                    alternative-text="alert"
+                                                    variant="inverse"
+                                                    size="xx-small" ></lightning-icon>
+                                                </span>
+                                                {label.Loyalty_Without_Bonus_Conditions_Defined}
+                                            </span>
+                                        </template>
+                                    </div>
+                                    <div class="summary slds-var-p-around_small">
+                                        <h2 class="slds-text-heading_medium slds-hyphenate"><b>{ruleName}</b></h2>
+                                        <div class="slds-var-p-top_small">
+                                            <h2 class="slds-text-heading_small slds-hyphenate">{ruleDescription}</h2>
+                                        </div>
+                                        <div class="slds-var-p-top_small">
+                                            <h2 class="slds-text-heading_small slds-hyphenate"><b>{label.Loyalty_Status}: </b><span><c-loyalty_l-w-c_-Generic-Label value={ruleStatus} labeldefinitions={statusLabelAttributes}></c-loyalty_l-w-c_-Generic-Label></span></h2>
+                                        </div>
+                                        <template if:true={runningTimeChecked}>
+                                            <div class="slds-var-p-top_large">
+                                                <h2 class="slds-text-heading_small slds-hyphenate">{label.Loyalty_Running_Time}</h2>
+                                                <span>{validFromDateString}</span> - <span>{validToDateString}</span>
+                                            </div>
+                                        </template>
+                                        <template if:true={limitationsChecked}>
+                                            <div class="slds-var-p-top_large">
+                                                <h2 class="slds-text-heading_small slds-hyphenate">{label.Loyalty_Limitations}</h2>
+                                                <span>{label.Loyalty_Custom_Behaviour_Description}&nbsp;{behaviourNumber}&nbsp;{label.Loyalty_Times_Per}&nbsp;{behaviourSelectedLabel}</span>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </lightning-record-edit-form>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_2-of-12">
+                            <template if:true={isFirstStep}>
+                                <lightning-button label={label.Loyalty_Cancel} variant="outline-brand" class="slds-float_left" onclick={closeModal}></lightning-button>
+                            </template>
+                            <template if:false={isFirstStep}>
+                                <lightning-button label={label.Loyalty_Back} data-direction="back" variant="outline-brand" class="slds-float_left" onclick={changeProgressStep}></lightning-button>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_8-of-12">
+                            <div class="slds-var-p-top_x-small">
+                                <lightning-progress-indicator current-step={currentStepString} type="base" has-error="true" variant="base">
+                                    <lightning-progress-step label={label.Loyalty_General_Information} value="1" onclick={changeProgressStep}></lightning-progress-step>
+                                    <lightning-progress-step label={label.Loyalty_Bonus_Conditions} value="2" onclick={changeProgressStep}></lightning-progress-step>
+                                    <lightning-progress-step label={label.Loyalty_Bonus_Actions} value="3" onclick={changeProgressStep}></lightning-progress-step>
+                                </lightning-progress-indicator> 
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_2-of-12">
+                            <template if:true={isLastStep}>
+                                <lightning-button variant="brand" onclick={submitSetupRule} disabled={getMandatoryFieldsNotFilled} label={label.Loyalty_Save}></lightning-button>
+                            </template>
+                            <template if:false={isLastStep}>
+                                <lightning-button label={label.Loyalty_Next} data-direction="forth" variant="brand" onclick={changeProgressStep}></lightning-button>
+                            </template>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </template>
+</template>

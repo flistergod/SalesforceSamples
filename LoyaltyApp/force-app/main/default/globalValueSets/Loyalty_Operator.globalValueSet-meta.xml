@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>/</fullName>
+        <default>false</default>
+        <label>/</label>
+    </customValue>
+    <customValue>
+        <fullName>*</fullName>
+        <default>false</default>
+        <label>*</label>
+    </customValue>
+    <customValue>
+        <fullName>&gt;</fullName>
+        <default>false</default>
+        <label>&gt;</label>
+    </customValue>
+    <customValue>
+        <fullName>&lt;</fullName>
+        <default>false</default>
+        <label>&lt;</label>
+    </customValue>
+    <customValue>
+        <fullName>&gt;=</fullName>
+        <default>false</default>
+        <label>&gt;=</label>
+    </customValue>
+    <customValue>
+        <fullName>&lt;=</fullName>
+        <default>false</default>
+        <label>&lt;=</label>
+    </customValue>
+    <customValue>
+        <fullName>=</fullName>
+        <default>false</default>
+        <label>=</label>
+    </customValue>
+    <customValue>
+        <fullName>!=</fullName>
+        <default>false</default>
+        <label>!=</label>
+    </customValue>
+    <masterLabel>Loyalty Operator</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

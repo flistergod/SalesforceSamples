@@ -1,0 +1,11 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "namespace": "",
+  "sfdcLoginUrl": "https://findloyalty-dev-ed.my.salesforce.com",
+  "sourceApiVersion": "49.0"
+}

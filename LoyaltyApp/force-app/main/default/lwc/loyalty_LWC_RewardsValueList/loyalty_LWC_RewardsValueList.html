@@ -1,0 +1,459 @@
+<!--
+  @description       : list to show reward value records
+  @author            : Nelson Andrade
+  @group             : 
+  @last modified on  : 01-29-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   12-22-2020   Nelson Andrade                       Initial Version
+-->
+<template>
+  <div class="body">
+    <div class="slds-page-header">
+      <div class="slds-page-header__row">
+        <div class="slds-page-header__col-title">
+          <div class="slds-media">
+            <div class="slds-media__figure">
+              <span class="slds-icon_container slds-icon-standard-reward">
+                <lightning-icon
+                  icon-name="standard:reward"
+                  alternative-text={label.Loyalty_Reward_Values}
+                  title={label.Loyalty_Reward_Values}
+                  size="medium"
+                ></lightning-icon>
+              </span>
+            </div>
+            <div class="slds-media__body">
+              <div class="slds-page-header__name">
+                <div class="slds-page-header__name-title">
+                  <h1>
+                    <span>{label.Loyalty_Reward_Values}</span>
+                    <div class="slds-form-element">
+                      <div class="slds-form-element__control">
+                        <div class="slds-combobox_container slds-size_small">
+                          <div
+                            class={dropdownTriggerClass}
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            role="combobox"
+                          >
+                            <div
+                              class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
+                              role="none"
+                              onclick={handleClickExtend}
+                            >
+                              <span
+                                class="slds-page-header__title slds-truncate current_filter"
+                                title="Change ListView"
+                                >{currentFilterLabel}
+                                <lightning-icon
+                                  class="slds-button__icon slds-icon-utility-down slds-icon_container forceIcon slds-m-top_xxx-small slds-p-right_xxx-small"
+                                  data-data-rendering-service-uid="232"
+                                  data-aura-rendered-by="371:0"
+                                  data-aura-class="forceIcon"
+                                  icon-name="utility:down"
+                                  size="x-small"
+                                >
+                                </lightning-icon>
+                              </span>
+                            </div>
+                            <div
+                              class="slds-dropdown slds-dropdown_left slds-dropdown_large slds-dropdown_length-with-icon-7"
+                              role="listbox"
+                            >
+                              <ul
+                                class="slds-listbox slds-listbox_vertical"
+                                role="presentation"
+                              >
+                                <li
+                                  class="slds-dropdown__header slds-text-heading--label forceVirtualAutocompleteMenuOption"
+                                  role="presentation"
+                                  data-aura-rendered-by="7262:0"
+                                  data-aura-class="forceVirtualAutocompleteMenuOption"
+                                >
+                                  <div
+                                    class="virtualAutocompleteOptionText virtualAutocompleteOptionHeader"
+                                    role="presentation"
+                                    data-aura-rendered-by="7280:0"
+                                  >
+                                    {label.Loyalty_List_Views}
+                                  </div>
+                                </li>
+                                <template
+                                  for:each={filterOptions}
+                                  for:item="option"
+                                >
+                                  <li
+                                    role="presentation"
+                                    class="slds-listbox__item slds-dropdown__item has-icon--left slds-is-selected forceVirtualAutocompleteMenuOption"
+                                    data-aura-rendered-by="7262:0"
+                                    data-aura-class="forceVirtualAutocompleteMenuOption"
+                                    key={option.value}
+                                  >
+                                    <template if:true={option.selected}>
+                                      <div
+                                        aria-selected="true"
+                                        class="slds-media slds-listbox__option slds-listbox__option_plain slds-media-small slds-has-focus"
+                                        data-filter={option.value}
+                                        onclick={handleFilterChangeButton}
+                                      >
+                                        <lightning-icon
+                                          class="slds-icon slds-icon--selected slds-icon--x-small slds-icon-text-default slds-m-right--small slds-button__icon slds-icon-utility-check slds-icon_container forceIcon"
+                                          data-data-rendering-service-uid="232"
+                                          data-aura-rendered-by="371:0"
+                                          data-aura-class="forceIcon"
+                                          icon-name="utility:check"
+                                          size="x-small"
+                                        >
+                                        </lightning-icon>
+                                        <span
+                                          class="slds-media__body"
+                                          data-filter={option.value}
+                                        >
+                                          <span
+                                            class="slds-truncate"
+                                            title="Option A"
+                                            data-filter={option.value}
+                                            >{option.label}</span
+                                          ></span
+                                        >
+                                      </div>
+                                    </template>
+                                    <template if:false={option.selected}>
+                                      <div
+                                        aria-selected="true"
+                                        class="slds-media slds-listbox__option slds-listbox__option_plain slds-media-small"
+                                        data-filter={option.value}
+                                        onclick={handleFilterChangeButton}
+                                      >
+                                        <lightning-icon
+                                          class="slds-icon slds-icon--selected slds-icon--x-small slds-icon-text-default slds-m-right--small slds-button__icon slds-icon-utility-down slds-icon_container forceIcon"
+                                          data-data-rendering-service-uid="232"
+                                          data-aura-rendered-by="371:0"
+                                          data-aura-class="forceIcon"
+                                          icon-name=""
+                                          size="x-small"
+                                        >
+                                        </lightning-icon>
+                                        <span
+                                          class="slds-media__body"
+                                          data-filter={option.value}
+                                        >
+                                          <span
+                                            class="slds-truncate"
+                                            title="Option A"
+                                            data-filter={option.value}
+                                            >{option.label}</span
+                                          ></span
+                                        >
+                                      </div>
+                                    </template>
+                                  </li>
+                                </template>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slds-page-header__col-actions">
+          <div class="slds-page-header__controls">
+            <div class="slds-page-header__control">
+              <ul class="slds-button-group-list">
+                <li>
+                  <template if:true={showModal}>
+                    <c-loyalty_L-W-C_-create-loyalty-reward-value-listview-modal
+                      typeofmodal={typeOfModal}
+                      currentlistview={currentFilter}
+                      onnewbonusrule={handleNewBonusRuleCreated}
+                      onmodalclose={handleCloseModal}
+                    >
+                    </c-loyalty_L-W-C_-create-loyalty-reward-value-listview-modal>
+                  </template>
+
+                  <c-loyalty_L-W-C_-create-loyalty-reward-value-record-modal
+                    onnewrewardvalue={handleNewRewardValueCreated}
+                  >
+                  </c-loyalty_L-W-C_-create-loyalty-reward-value-record-modal>
+
+                  <template if:true={isEdit}>
+                    <c-loyalty_L-W-C_-create-loyalty-reward-value-record-modal
+                      rewardvalueid={rewardValueId}
+                      isedit={isEdit}
+                      onnewrewardvalue={handleNewRewardValueCreated}
+                      onmodalclose={handleCloseModal}
+                    >
+                    </c-loyalty_L-W-C_-create-loyalty-reward-value-record-modal>
+                  </template>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slds-page-header__row">
+        <div class="slds-page-header__col-meta">
+          <p class="slds-page-header__meta-text">
+            {totalrecords} {label.Loyalty_Items}
+          </p>
+          <!-- • {label.Loyalty_Page} <b>{currentpage}</b> {label.Loyalty_Of} <b> {totalpages}</b>-->
+        </div>
+        <lightning-input
+          type="text"
+          placeholder="Search this list..."
+          value={sVal}
+          onchange={updateSearchKey}
+        >
+        </lightning-input>
+        <div class="slds-page-header__col-controls">
+          <div class="slds-page-header__controls">
+            <div class="slds-page-header__control">
+              <div class={triggerDropdownSettingsIcon}>
+                <button
+                  class={buttonClass}
+                  aria-haspopup="true"
+                  onclick={handleClickExtendSettings}
+                  title="List View Controls"
+                >
+                  <lightning-icon
+                    icon-name="utility:settings"
+                    alternative-text={label.Loyalty_Summary}
+                    title={label.Loyalty_Summary}
+                    size="x-small"
+                  ></lightning-icon>
+                  <lightning-icon
+                    icon-name="utility:down"
+                    alternative-text={label.Loyalty_Summary}
+                    title={label.Loyalty_Summary}
+                    size="x-small"
+                    class={classMyIcon}
+                  ></lightning-icon>
+                  <span class="slds-assistive-text">Show More</span>
+                </button>
+                <div class="slds-dropdown slds-dropdown_right">
+                  <ul
+                    class="slds-dropdown__list"
+                    role="menu"
+                    aria-label="Show More"
+                  >
+                    <li
+                      class="slds-dropdown__header slds-text-heading--label forceVirtualAutocompleteMenuOption"
+                      role="presentation"
+                      data-aura-rendered-by="7262:0"
+                      data-aura-class="forceVirtualAutocompleteMenuOption"
+                    >
+                      <div
+                        class="virtualAutocompleteOptionText virtualAutocompleteOptionHeader"
+                        role="presentation"
+                        data-aura-rendered-by="7280:0"
+                      >
+                        {label.Loyalty_List_Views}
+                      </div>
+                    </li>
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a
+                        href="#"
+                        role="menuitem"
+                        tabindex="0"
+                        data-modaltype="new"
+                        onclick={handleSettingsOption}
+                      >
+                        <span
+                          class="slds-truncate"
+                          data-modaltype="new"
+                          title="New List View"
+                          >{label.Loyalty_new}</span
+                        >
+                      </a>
+                    </li>
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a
+                        href="#"
+                        role="menuitem"
+                        tabindex="0"
+                        data-modaltype="clone"
+                        onclick={handleSettingsOption}
+                      >
+                        <span
+                          class="slds-truncate"
+                          data-modaltype="clone"
+                          title="Clone List View"
+                          >{label.Loyalty_clone}</span
+                        >
+                      </a>
+                    </li>
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a
+                        href="#"
+                        role="menuitem"
+                        tabindex="0"
+                        data-modaltype="rename"
+                        onclick={handleSettingsOption}
+                      >
+                        <span
+                          class="slds-truncate"
+                          data-modaltype="rename"
+                          title="Rename List View"
+                          >{label.Loyalty_rename}</span
+                        >
+                      </a>
+                    </li>
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a
+                        href="#"
+                        role="menuitem"
+                        tabindex="0"
+                        data-modaltype="sharing"
+                        onclick={handleSettingsOption}
+                      >
+                        <span
+                          class="slds-truncate"
+                          data-modaltype="sharing"
+                          title="Sharing Seetings"
+                          >{label.Loyalty_Sharing_Settings}</span
+                        >
+                      </a>
+                    </li>
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a
+                        href="#"
+                        role="menuitem"
+                        tabindex="0"
+                        data-modaltype="editFilters"
+                        onclick={handleSettingsOption}
+                      >
+                        <span
+                          class="slds-truncate"
+                          data-modaltype="editFilters"
+                          title="Edit List Filters"
+                          >{label.Loyalty_EditListFilters}</span
+                        >
+                      </a>
+                    </li>
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a
+                        href="#"
+                        role="menuitem"
+                        tabindex="0"
+                        data-modaltype="displayFields"
+                        onclick={handleSettingsOption}
+                      >
+                        <span
+                          class="slds-truncate"
+                          data-modaltype="displayFields"
+                          title="Select Fields to Display"
+                          >{label.Loyalty_SelectFieldsToDisplay}</span
+                        >
+                      </a>
+                    </li>
+                    <li class="slds-dropdown__item" role="presentation">
+                      <a
+                        href="#"
+                        role="menuitem"
+                        tabindex="0"
+                        data-modaltype="delete"
+                        onclick={handleSettingsOption}
+                      >
+                        <span
+                          class="slds-truncate"
+                          data-modaltype="delete"
+                          title="Delete Listview"
+                          >{label.Loyalty_Delete}</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="slds-page-header__control">
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button
+                  class="slds-button slds-button_icon slds-button_icon-more"
+                  aria-haspopup="true"
+                  title="Change view"
+                >
+                  <lightning-icon
+                    icon-name="utility:table"
+                    alternative-text={label.Loyalty_Summary}
+                    title={label.Loyalty_Summary}
+                    size="x-small"
+                  ></lightning-icon>
+                  <lightning-icon
+                    icon-name="utility:down"
+                    alternative-text={label.Loyalty_Summary}
+                    title={label.Loyalty_Summary}
+                    size="x-small"
+                  ></lightning-icon>
+                  <span class="slds-assistive-text">Change view</span>
+                </button>
+              </div>
+            </div>
+            <div class="slds-page-header__control">
+              <button
+                class="slds-button slds-button_icon slds-button_icon-border-filled"
+                title="Refresh List"
+                onclick={HandleloadRewardValueData}
+              >
+                <lightning-icon
+                  icon-name="utility:refresh"
+                  alternative-text={label.Loyalty_Summary}
+                  title={label.Loyalty_Summary}
+                  size="x-small"
+                ></lightning-icon>
+                <span class="slds-assistive-text">Refresh List</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style={heightTable} onclick={handleClickExtendOutside}>
+      <c-loyalty-lightning-datatable
+        key-field="Id"
+        columns={rewardValueColumns}
+        data={rewardValues}
+        hide-checkbox-column
+        default-sort-direction={defaultSortDirection}
+        sorted-direction={sortDirection}
+        sorted-by={sortedBy}
+        onsort={onHandleSort}
+        onrowaction={handleRowAction}
+        enable-infinite-loading="false"
+      >
+      </c-loyalty-lightning-datatable>
+
+      <!--
+      <div if:false={recordsLoaded} class="slds-spinner_inline spinner-padding">
+        <lightning-spinner
+          variant="brand"
+          alternative-text="Loading Records"
+          size="medium"
+        >
+        </lightning-spinner>
+
+      </div>
+      -->
+    </div>
+    <template if:false={hasRecords}>
+      <div
+        style="padding-bottom: 450px"
+        class="slds-text-align_center slds-text-vertical-align_center slds-page-header__meta-text"
+      >
+        <p>{Loyalty_NoItems}</p>
+      </div>
+    </template>
+    <!-- <div class="slds-var-m-around_medium">  
+            <c-L-W-C_-Loyalty-paginator onloyaltyprevious={handleLoyaltyPrevious} onloyaltynext={handleLoyaltyNext} onloyaltyfirst={handleLoyaltyFirst}  
+              onloyaltylast={handleLoyaltyLast} currentpage={currentpage} totalrecords={totalrecords} pagesize={pagesize}>  
+            </c-L-W-C_-Loyalty-paginator>  
+        </div>   -->
+  </div>
+</template>

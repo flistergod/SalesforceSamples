@@ -1,0 +1,32 @@
+<template>
+    <template if:false={isFirstElement}>
+        <lightning-button-icon icon-name="action:close" alternative-text={label.Loyalty_Remove_Field_Rule} title={label.Loyalty_Remove_Field_Rule} variant="outline-brand" class="slds-var-m-top_large slds-float_right" onclick={removeFieldRule}></lightning-button-icon>
+    </template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_4-of-12">
+            <div class="slds-float_left">
+                <lightning-combobox
+                name="field"
+                label={label.Loyalty_Field}
+                value={selectedFieldValue}
+                placeholder={label.Loyalty_Select_Field}
+                options={sobjectFields}
+                onchange={handleFieldChange} >
+            </lightning-combobox>
+            </div>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+            <lightning-combobox
+                name="operator"
+                label={label.Loyalty_Operator}
+                value={operatorValue}
+                placeholder={label.Loyalty_Select_Operator}
+                options={operatorOptions}
+                onchange={handleOperatorChange} >
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_4-of-12">
+            <lightning-input name="value" label={label.Loyalty_Value} class="slds-float_right" value={selectedValue} onblur={handleValueChange}></lightning-input>
+        </div>
+    </div>
+</template>

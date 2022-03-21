@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Point_Program</fullName>
+    <active>true</active>
+    <description>Spend more to get more based program</description>
+    <label>Point Program</label>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Point Program</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

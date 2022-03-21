@@ -1,0 +1,115 @@
+<!--
+  @description       : 
+  @author            : Nelson Andrade
+  @group             : 
+  @last modified on  : 01-29-2021
+  @last modified by  : Nelson Andrade
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   01-14-2021   Nelson Andrade                       Initial Version
+-->
+<template>
+  <template if:false={isedit}>
+    <lightning-button label={label.Loyalty_CreateNewRewardValue} onclick={showModal}>
+    </lightning-button>
+  </template>
+  <template if:true={openModal}>
+    <div class="slds-modal slds-fade-in-open slds-backdrop">
+      <div class="slds-modal__container">
+        <!-- Modal/Popup Box LWC header here -->
+        <header class="slds-modal__header">
+          <button
+            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+            title={label.Loyalty_Close}
+            onclick={closeModal}
+          >
+            <lightning-icon
+              icon-name="utility:close"
+              alternative-text="close"
+              variant="inverse"
+              size="small"
+            ></lightning-icon>
+            <span class="slds-assistive-text">{label.Loyalty_Close}</span>
+          </button>
+          <h2
+            id="modal-heading-01"
+            class="slds-text-heading_medium slds-hyphenate"
+          >
+            <b>{rewardValueTitle}</b>
+          </h2>
+        </header>
+        <!-- Modal/Popup Box LWC body starts here -->
+        <div
+          class="slds-modal__content slds-var-p-around_medium"
+          id="modal-content-id-1"
+        >
+          <lightning-record-edit-form
+            object-api-name="Loyalty_Reward_Value__c"
+          >
+            <div class="stepOne">
+              <h2 class="slds-text-heading_medium slds-hyphenate">
+                <b>{label.Loyalty_General_Information}</b>
+              </h2>
+              <br />
+              <lightning-input-field
+                field-name="Name"
+                required
+                value={ruleName}
+                onchange={handleRuleNameChange}
+              >
+              </lightning-input-field>
+              <lightning-input-field
+                field-name="Is_Delivered__c"
+                checked={ruleIsDelivered}
+                value={ruleIsDelivered}
+                onchange={handleRuleIsDeliveredChange}
+              >
+              </lightning-input-field>
+              <lightning-input-field
+                field-name="Loyalty_Reward__c"
+                required
+                value={ruleLoyaltyReward}
+                onchange={handleRuleLoyaltyRewardChange}
+              >
+              </lightning-input-field>
+              <lightning-input-field
+                field-name="Loyalty_Value__c"
+                value={ruleLoyaltyValue}
+                onchange={handleRuleLoyaltyValueChange}
+              >
+              </lightning-input-field>
+              <lightning-input-field
+                field-name="Reward_Type__c"
+                value={ruleRewardType}
+                onchange={handleRuleRewardTypeChange}
+              >
+              </lightning-input-field>
+            </div>
+          </lightning-record-edit-form>
+        </div>
+        <!-- Modal/Popup Box LWC footer starts here -->
+        <footer class="slds-modal__footer">
+          <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_9-of-12"></div>
+            <div class="slds-col slds-size_3-of-12">
+              <lightning-button
+                variant="brand"
+                onclick={submitNewRewardValue}
+                disabled={getMandatoryFieldsNotFilled}
+                label={label.Loyalty_Save}
+              >
+              </lightning-button>
+              <lightning-button
+                label={label.Loyalty_Cancel}
+                variant="outline-brand"
+                class="slds-float_left"
+                onclick={closeModal}
+              >
+              </lightning-button>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </template>
+</template>

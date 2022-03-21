@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Card_Program</fullName>
+    <active>true</active>
+    <description>Card program that incentive consume and allows gather consumers data</description>
+    <label>Card Program</label>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Card Program</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

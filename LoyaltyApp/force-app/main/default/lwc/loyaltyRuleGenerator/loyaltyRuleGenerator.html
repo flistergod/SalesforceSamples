@@ -1,0 +1,31 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <template if:false={isFirstElement}>
+            <div class="slds-var-p-top_xx-small inner-group-separator"><hr></div>
+            <div class="slds-clearfix"></div>
+        </template>
+        <div class="slds-col slds-size_12-of-12">
+            <lightning-button label={label.Loyalty_And} variant="brand" class="and-button slds-float_left" onclick={changeInnerGroupCondition}></lightning-button>
+            <lightning-button label={label.Loyalty_Or} variant="outline-brand" class="or-button slds-float_left" onclick={changeInnerGroupCondition}></lightning-button>
+            <template if:false={isFirstElement}>
+                <lightning-button-icon icon-name="action:close" alternative-text={label.Loyalty_Remove_Inner_Group} title={label.Loyalty_Remove_Inner_Group} variant="outline-brand" class="slds-float_right" onclick={removeInnerGroup}></lightning-button-icon>
+            </template>
+        </div>
+        <div class="slds-var-p-top_x-small slds-col slds-size_12-of-12">
+            <lightning-button-icon icon-name="utility:add"  alternative-text={label.Loyalty_Add_Field_Rule} title={label.Loyalty_Add_Field_Rule} variant="outline-brand" class="slds-var-m-top_large slds-float_right" onclick={addFieldRule}></lightning-button-icon>
+            <template for:each={fieldRulesData} for:item="item">
+                <c-Loyalty-Field-Rule
+                    key={item.requiredKey}
+                    iterationkey={item.requiredKey}
+                    iseditting={iseditting}
+                    iterationdata={item}
+                    sobjectfields={sobjectfields}
+                    onloyaltyremovefieldrule={removeInnerGroupFieldRule}
+                    onloyaltyoperatorchange={loyaltyFieldOperatorChange}
+                    onloyaltyfieldchange={loyaltyFieldNameChange}
+                    onloyaltyvaluechange={loyaltyFieldValueChange}
+                ></c-Loyalty-Field-Rule>
+            </template>
+        </div>
+    </div>
+</template>

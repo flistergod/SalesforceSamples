@@ -1,0 +1,23 @@
+<template>
+    <span class={labelClass}>
+        <template if:true={isIconDefined}>
+            <template if:true={isIconPositionLeft}>
+                <span class={iconClass}>
+                    <lightning-icon icon-name={iconName} alternative-text={iconTitle}
+                    title={iconTitle} size={iconSize}></lightning-icon>
+                </span>
+                &nbsp;
+            </template>
+        </template>
+        {value}
+        <template if:true={isIconDefined}>
+            <template if:true={isIconPositionRight}>
+                &nbsp;
+                <span class={iconClass}>
+                    <lightning-icon icon-name={iconName} alternative-text={iconTitle}
+                    title={iconTitle} size={iconSize}></lightning-icon>
+                </span>
+            </template>
+        </template>
+    </span>
+</template>

@@ -1,0 +1,20 @@
+.slds-modal__container {
+    width: 50% !important;
+    max-width: 60rem !important;
+}
+
+.slds-modal__container .slds-modal__content {
+    min-height: 10rem !important;
+}
+
+hr {
+    margin: 10px 0 !important;
+}
+
+.loyalty-remove-label .label-hidden > label {
+    display: none;
+}
+
+.loyalty-summary {
+    min-height: 350px;
+}

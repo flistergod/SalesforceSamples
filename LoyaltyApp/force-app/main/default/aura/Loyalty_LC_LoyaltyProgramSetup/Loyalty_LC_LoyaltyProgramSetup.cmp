@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" controller="Loyalty_Ctrl_LoyaltyProgramSetup" access="global">
+    <!-- component attribute -->    
+    <aura:attribute name="loyaltyProgramSetupId" type="Id" />
+    <!-- end component attributes -->
+
+    <!-- component handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- end component handlers -->
+
+    <lightning:recordForm
+        recordId="{!v.loyaltyProgramSetupId}"
+        objectApiName="Loyalty_Program_Setup__c"
+        layoutType="Full"
+        columns="2"
+        mode="view" />
+</aura:component>

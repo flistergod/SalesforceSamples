@@ -1,0 +1,4 @@
+<aura:component access="global">
+    <aura:handler name='init' value='{! this }' action='{! c.doInit }' /> 
+    <aura:handler event='c:LoyaltyGlobalEvent' action='{! c.getEventMethodName }' /> 
+</aura:component>

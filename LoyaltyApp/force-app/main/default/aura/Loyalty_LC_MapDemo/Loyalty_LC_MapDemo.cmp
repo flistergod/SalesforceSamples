@@ -1,0 +1,33 @@
+<aura:component implements="force:appHostable">
+    <!-- attributes -->
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="center" type="Object" />
+    <aura:attribute name="zoomLevel" type="Integer" />
+    <aura:attribute name="markersTitle" type="String" />
+    <aura:attribute name="showFooter" type="Boolean" />
+
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+    <div class="slds-grid slds-wrap slds-gutters slds-gutters_x-small slds-grid_pull-padded-x-small componentReferenceExamples">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-6">
+
+        </div>
+        <div class="example-box-container slds-col slds-size_1-of-1 slds-medium-size_4-of-6">
+            <div class="slds-box example-box">
+                <div style="max-height: 200px;">
+                    <lightning:map
+                    mapMarkers="{! v.mapMarkers }"
+                    center="{! v.center }"
+                    zoomLevel="{! v.zoomLevel }"
+                    markersTitle="{! v.markersTitle }"
+                    showFooter="{ !v.showFooter }" >
+                    </lightning:map>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+</aura:component>
